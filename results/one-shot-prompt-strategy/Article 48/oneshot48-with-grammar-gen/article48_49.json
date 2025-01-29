@@ -1,0 +1,154 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "decision",
+        "processor",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "judgment",
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "decision",
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-judgment",
+      "actor": "judgment",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty-judgment",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-decision",
+      "actor": "decision",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty-decision",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty-judgment",
+      "holder": "controller",
+      "claimant": "subject",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty-decision",
+      "holder": "processor",
+      "claimant": "subject",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

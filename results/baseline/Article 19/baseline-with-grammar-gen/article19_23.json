@@ -1,0 +1,24 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "rectification_or_erasure",
+        "d2": "processing_restriction",
+        "d*": ["Article_16", "Article_17_1", "Article_18"],
+        "b*": ["recipient_disclosure_impossible", "disproportionate_effort"],
+        "c*": ["inform_data_subject"],
+        "b?0": null
+      }
+    }
+  ]
+}
+```

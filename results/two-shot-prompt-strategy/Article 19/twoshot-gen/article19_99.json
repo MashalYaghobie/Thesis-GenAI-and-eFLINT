@@ -1,0 +1,261 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-disclosed-data",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-rectification",
+      "identified-by": [
+        "controller",
+        "rectification",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-erasure",
+      "identified-by": [
+        "controller",
+        "erasure",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-restriction",
+      "identified-by": [
+        "controller",
+        "restriction",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-rectification",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "has-disclosed-data",
+                  "operands": []
+                },
+                {
+                  "identifier": "no-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-rectification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-erasure",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-erasure",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "has-disclosed-data",
+                  "operands": []
+                },
+                {
+                  "identifier": "no-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-erasure",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-restriction",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-restriction",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "has-disclosed-data",
+                  "operands": []
+                },
+                {
+                  "identifier": "no-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-restriction",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed-data",
+              "operands": []
+            },
+            {
+              "identifier": "request-from-data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-to-data-subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "communication-duty-for-rectification",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "communication-duty-for-erasure",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "communication-duty-for-restriction",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-to-data-subject",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

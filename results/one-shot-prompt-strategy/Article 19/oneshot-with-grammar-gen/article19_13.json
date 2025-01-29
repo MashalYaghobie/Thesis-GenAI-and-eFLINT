@@ -1,0 +1,173 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-been-disclosed",
+      "identified-by": [
+        "personal-data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-of-rectification-erasure-restriction",
+      "identified-by": [
+        "controller",
+        "rectification",
+        "erasure",
+        "restriction-of-processing",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "impossible-to-inform",
+      "identified-by": [
+        "controller",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disproportionate-effort",
+      "identified-by": [
+        "controller",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "erasure",
+        "restriction-of-processing",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "impossible-to-inform",
+                  "operands": []
+                }
+              ]
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-been-disclosed",
+              "operands": [
+                "personal-data",
+                "recipient"
+              ]
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "request-from-data-subject",
+                  "operands": []
+                },
+                {
+                  "identifier": "impossible-to-inform",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "informing-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "personal-data",
+      "related-to": [
+        "recipient"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "informing-duty",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

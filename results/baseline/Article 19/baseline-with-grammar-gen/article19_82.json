@@ -1,0 +1,37 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "type": "string_set",
+          "elements": [
+            "rectification",
+            "erasure",
+            "restriction of processing"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": ["Article_16", "Article_17(1)", "Article_18"],
+        "b*": ["disproportionate_effort"],
+        "c*": null,
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "rectification_or_erasure_notification",
+        "b?": null,
+        "c*": ["data_subject_request"],
+        "b?0": null
+      }
+    }
+  ]
+}

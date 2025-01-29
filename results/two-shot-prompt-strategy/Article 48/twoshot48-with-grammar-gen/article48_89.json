@@ -1,0 +1,160 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-requirement",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-requirement",
+      "identified-by": [
+        "third-country",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognized-judgment",
+      "identified-by": [
+        "court-judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-decision",
+      "identified-by": [
+        "administrative-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-data",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-requirement",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "disclose-data",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-requirement",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "disclosure-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-duty",
+      "holder": "controller",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "disclosure-duty",
+      "holder": "processor",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

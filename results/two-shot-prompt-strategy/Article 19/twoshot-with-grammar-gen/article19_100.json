@@ -1,0 +1,148 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-to-recipient",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notified-rectification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notified-erasure",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notified-restriction",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction-of-processing"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-rectification-or-erasure",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "erasure",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "disclosure-to-recipient",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "notified-rectification",
+                  "operands": []
+                },
+                {
+                  "identifier": "notified-erasure",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-to-recipient",
+              "operands": []
+            },
+            {
+              "identifier": "data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information-duty-by-controller",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

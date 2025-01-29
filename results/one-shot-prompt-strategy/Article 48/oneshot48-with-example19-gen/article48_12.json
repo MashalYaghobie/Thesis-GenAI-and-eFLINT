@@ -1,0 +1,96 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "union-law",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognized-or-enforced",
+      "identified-by": [
+        "decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement-in-force",
+      "identified-by": [
+        "agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-or-enforce-decision",
+      "actor": "controller",
+      "related-to": [
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement-in-force",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "union-law",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

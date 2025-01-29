@@ -1,0 +1,130 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "union-law",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "mutual-legal-assistance-treaty",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-requirement",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-requirement",
+      "identified-by": [
+        "third-country",
+        "processor",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognizable-enforceable",
+      "identified-by": [
+        "court-judgment",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognizable-enforceable",
+      "identified-by": [
+        "administrative-decision",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-personal-data",
+      "actor": [
+        "controller",
+        "processor"
+      ],
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-requirement",
+              "operands": []
+            },
+            {
+              "identifier": "recognizable-enforceable",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-or-disclosure-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-or-disclosure-duty",
+      "holder": [
+        "controller",
+        "processor"
+      ],
+      "claimant": "personal-data",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

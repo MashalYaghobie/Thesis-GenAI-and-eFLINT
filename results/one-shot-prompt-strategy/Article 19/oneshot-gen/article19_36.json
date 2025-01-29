@@ -1,0 +1,147 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed-to",
+      "identified-by": [
+        "recipient",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-or-erasure",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requests-information",
+      "identified-by": [
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "rectification-or-erasure",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "disclosed-to",
+                  "operands": []
+                },
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duties-to-recipients",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requests-information",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-to-data-subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duties-to-recipients",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-to-data-subject",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

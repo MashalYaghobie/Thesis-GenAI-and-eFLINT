@@ -1,0 +1,11 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferOrDisclosureNotAuthorised",
+        "δ": "strings",
+        "b": false
+      }
+    }
+  ]
+}

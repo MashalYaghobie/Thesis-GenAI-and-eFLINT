@@ -1,0 +1,194 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-to-recipient",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-to-recipient",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-to-recipient",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "data-disclosed-to",
+      "identified-by": [
+        "recipient",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requested-information",
+      "identified-by": [
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipient-of-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "requested-information",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipient-of-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "requested-information",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipient-of-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "requested-information",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "data-subject"
+      ]
+    }
+  ],
+  "updates": true
+}

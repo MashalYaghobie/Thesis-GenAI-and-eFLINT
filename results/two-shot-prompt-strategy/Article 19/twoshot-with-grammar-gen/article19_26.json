@@ -1,0 +1,161 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-of-processing",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed-to",
+      "identified-by": [
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "rectification",
+              "operands": []
+            },
+            {
+              "identifier": "disclosed-to",
+              "operands": []
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "erasure",
+              "operands": []
+            },
+            {
+              "identifier": "disclosed-to",
+              "operands": []
+            }
+          ]
+        },
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "restriction-of-processing",
+              "operands": []
+            },
+            {
+              "identifier": "disclosed-to",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "requested-recipients",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "inform-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "inform-duty",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

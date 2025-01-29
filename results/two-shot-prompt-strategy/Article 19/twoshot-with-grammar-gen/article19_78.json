@@ -1,0 +1,202 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-to-recipient",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-of-rectification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-of-erasure",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-of-restriction",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction-of-processing"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-to-recipient",
+              "operands": []
+            },
+            {
+              "identifier": "notification-of-rectification",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-rectification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-to-recipient",
+              "operands": []
+            },
+            {
+              "identifier": "notification-of-erasure",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-erasure",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction-of-processing",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-to-recipient",
+              "operands": []
+            },
+            {
+              "identifier": "notification-of-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-restriction",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject-of-recipients",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "notification-duty-for-rectification",
+              "operands": []
+            },
+            {
+              "identifier": "notification-duty-for-erasure",
+              "operands": []
+            },
+            {
+              "identifier": "notification-duty-for-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "inform-duty-for-data-subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

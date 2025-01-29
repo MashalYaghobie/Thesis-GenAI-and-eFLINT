@@ -1,0 +1,144 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court-judgment",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "administrative-decision",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court-judgment",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "administrative-decision",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "court",
+      "related-to": [
+        "court-judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceable-duty-by-court",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-decision",
+      "actor": "administrative-authority",
+      "related-to": [
+        "administrative-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceable-duty-by-authority",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforceable-duty-by-court",
+      "holder": "court",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforceable-duty-by-authority",
+      "holder": "administrative-authority",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

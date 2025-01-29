@@ -1,0 +1,158 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-rectification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-erasure",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-restriction",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction-of-processing"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "informs-data-subject",
+      "identified-by": [
+        "controller",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipient",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "communicates-rectification",
+              "operands": []
+            },
+            {
+              "identifier": "communicates-erasure",
+              "operands": []
+            },
+            {
+              "identifier": "communicates-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "informs-data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "personal-data",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information-duty-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-by-controller",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "information-duty-by-controller",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

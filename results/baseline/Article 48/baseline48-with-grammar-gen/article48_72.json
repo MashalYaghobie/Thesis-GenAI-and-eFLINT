@@ -1,0 +1,33 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "JudgmentDecisionRecognition",
+        "b": "false",
+        "c": [
+          "controller",
+          "processor",
+          "personalData"
+        ],
+        "b0": "false"
+      }
+    },
+    {
+      "ddc": {
+        "d0": "TransferDisclosureConditions",
+        "d1": "InternationalAgreement",
+        "d2": "MutualLegalAssistanceTreaty",
+        "d*": [],
+        "b": "false",
+        "b0": "false"
+      }
+    }
+  ]
+}

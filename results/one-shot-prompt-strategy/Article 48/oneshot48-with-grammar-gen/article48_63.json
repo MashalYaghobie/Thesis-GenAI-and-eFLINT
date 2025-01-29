@@ -1,0 +1,136 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court-judgment",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "administrative-decision",
+        "processor",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-if",
+      "identified-by": [
+        "international-agreement",
+        "controller",
+        "processor",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-decision",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-of-decision",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-of-decision",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

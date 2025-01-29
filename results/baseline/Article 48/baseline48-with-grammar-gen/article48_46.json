@@ -1,0 +1,36 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers or disclosures not authorised by Union law",
+        "δ": "string_set('Any judgment of a court', 'Any decision of an administrative authority of a third country')",
+        "b": null
+      }
+    },
+    {
+      "dc": {
+        "d": "Requirement for transfer or disclosure of personal data",
+        "d1": "controller",
+        "d2": "processor",
+        "d*": null,
+        "b": null,
+        "b0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Recognition or enforceability of judgments",
+        "b": null,
+        "c*": null,
+        "b0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "International agreements basis for data transfer",
+        "δ": "string_set('mutual legal assistance treaty', 'Union', 'Member State')",
+        "b": null
+      }
+    }
+  ]
+}

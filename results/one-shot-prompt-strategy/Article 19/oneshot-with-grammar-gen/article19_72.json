@@ -1,0 +1,137 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-been-disclosed",
+      "identified-by": [
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "carried-out-in-accordance",
+      "identified-by": [
+        "controller",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "carried-out-in-accordance",
+      "identified-by": [
+        "controller",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "carried-out-in-accordance",
+      "identified-by": [
+        "controller",
+        "restriction"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification-erasure-restriction",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-been-disclosed",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-to-recipient",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-been-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "data-subject-requests",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-to-data-subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,189 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-notification",
+      "identified-by": [
+        "recipient",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure-notification",
+      "identified-by": [
+        "recipient",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-notification",
+      "identified-by": [
+        "recipient",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        },
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "rectification-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        },
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "erasure-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction",
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        },
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "restriction-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "request-by-data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

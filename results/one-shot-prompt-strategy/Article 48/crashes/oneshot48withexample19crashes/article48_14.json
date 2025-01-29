@@ -1,0 +1,78 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforcement-possible",
+      "identified-by": [
+        "court-judgment",
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-transfer",
+      "actor": "court",
+      "related-to": [
+        "controller",
+        "processor"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorised",
+              "operands": []
+            },
+            {
+              "identifier": "enforcement-possible",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

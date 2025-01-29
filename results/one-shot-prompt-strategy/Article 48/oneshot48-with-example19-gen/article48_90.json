@@ -1,0 +1,145 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorized",
+      "identified-by": [
+        "controller",
+        "third-country",
+        "agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-enforceable",
+      "identified-by": [
+        "judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-enforceable",
+      "identified-by": [
+        "decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorized",
+              "operands": []
+            },
+            {
+              "identifier": "judgment-enforceable",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "judgment-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorized",
+              "operands": []
+            },
+            {
+              "identifier": "decision-enforceable",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "decision-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "judgment-recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "decision-recognition-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

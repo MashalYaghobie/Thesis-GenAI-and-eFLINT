@@ -1,0 +1,35 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureAuthorization",
+        "δ": {
+          "string_set": [
+            "court_judgment",
+            "administrative_decision",
+            "international_agreement",
+            "mutual_legal_assistance_treaty",
+            "requesting_third_country",
+            "Union",
+            "Member_State"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransferDisclosureNotAuthorized",
+        "b": null,
+        "c": [
+          "controller",
+          "processor",
+          "personal_data"
+        ],
+        "b0": null
+      }
+    }
+  ]
+}
+```

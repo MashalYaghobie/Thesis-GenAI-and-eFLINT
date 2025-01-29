@@ -1,0 +1,94 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requiring-transfer-or-disclosure",
+      "identified-by": [
+        "judgment",
+        "decision",
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-or-enforce",
+      "actor": "authority",
+      "related-to": [
+        "judgment",
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiring-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-or-enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-or-enforcement-duty",
+      "holder": "authority",
+      "claimant": "controller",
+      "related-to": [
+        "third-country"
+      ]
+    }
+  ],
+  "updates": true
+}

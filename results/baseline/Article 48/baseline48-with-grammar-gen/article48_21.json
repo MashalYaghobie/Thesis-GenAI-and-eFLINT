@@ -1,0 +1,53 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_or_disclosures_not_authorised_by_Union_law",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Court_or_tribunal_judgment_recognition",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Administrative_authority_decision_recognition",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "International_agreement_requirement",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Mutual_legal_assistance_treaty",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Third_country_transfer_conditions",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Member_State_transfer_conditions",
+        "δ": "string",
+        "b": null
+      }
+    }
+  ]
+}

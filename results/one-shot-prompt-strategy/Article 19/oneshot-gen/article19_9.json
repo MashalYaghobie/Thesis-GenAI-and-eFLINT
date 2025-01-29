@@ -1,0 +1,90 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-been-disclosed",
+      "identified-by": [
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "request-for-recipients-info",
+      "identified-by": [
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification-or-erasure",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-been-disclosed",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "request-for-recipients-info",
+                  "operands": []
+                },
+                {
+                  "identifier": "impossible-or-disproportionate-effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

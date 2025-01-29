@@ -1,0 +1,144 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_authority_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer_or_disclosure",
+      "identified-by": [
+        "court_decision",
+        "controller",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer_or_disclosure",
+      "identified-by": [
+        "administrative_authority_decision",
+        "processor",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based_on_international_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize_enforce_transfer",
+      "actor": "controller",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer_or_disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_international_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition_enforcement_duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce_transfer_disclosure",
+      "actor": "processor",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer_or_disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_international_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement_duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition_enforcement_duty",
+      "holder": "controller",
+      "claimant": "third_country",
+      "related-to": [
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement_duty",
+      "holder": "processor",
+      "claimant": "third_country",
+      "related-to": [
+        "personal_data"
+      ]
+    }
+  ],
+  "updates": true
+}

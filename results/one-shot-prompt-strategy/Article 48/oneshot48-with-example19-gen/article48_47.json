@@ -1,0 +1,123 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court_or_tribunal",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_authority",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment_based_on_international_agreement",
+      "identified-by": [
+        "court_or_tribunal",
+        "third_country",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision_based_on_international_agreement",
+      "identified-by": [
+        "administrative_authority",
+        "third_country",
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize_enforce_judgment",
+      "actor": "court_or_tribunal",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "judgment_based_on_international_agreement",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "decision_based_on_international_agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "judgment_recognition",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce_decision",
+      "actor": "administrative_authority",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision_based_on_international_agreement",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "judgment_based_on_international_agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "decision_enforcement",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

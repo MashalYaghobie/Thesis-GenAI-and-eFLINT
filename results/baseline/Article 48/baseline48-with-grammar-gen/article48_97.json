@@ -1,0 +1,6 @@
+```
+specifications ::= 
+    fdecl("Article_48_Transfer_Disclosures_Not_Authorised", 
+           string_set("Transfers", "disclosures", "Union law", "judgment", "court", "tribunal", "decision", "administrative", "authority", "third country", "controller", "processor", "personal data", "international agreement", "mutual legal assistance treaty", "Union", "Member State"), 
+           b?0)
+```

@@ -1,0 +1,109 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-disclosure",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-or-erasure",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-of-processing",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "data",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosure",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "rectification-or-erasure",
+                  "operands": []
+                },
+                {
+                  "identifier": "restriction-of-processing",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "data-subject-requests",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

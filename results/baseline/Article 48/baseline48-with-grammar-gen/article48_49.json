@@ -1,0 +1,46 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48_Transfer_Disclosure",
+        "δ": {
+          "string_set": [
+            "judgment",
+            "court",
+            "tribunal",
+            "decision",
+            "administrative authority",
+            "third country",
+            "controller",
+            "processor",
+            "personal data",
+            "international agreement",
+            "mutual legal assistance treaty",
+            "Union",
+            "Member State"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "Requesting_Third_Country",
+        "d1": "Union_or_Member_State",
+        "d2": "Authority_Judgment",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Transfer_Recognition",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    }
+  ]
+}

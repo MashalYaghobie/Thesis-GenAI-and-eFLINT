@@ -1,0 +1,157 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "judgment",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "decision",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-under-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "enforceable-under-agreement",
+                  "operands": []
+                },
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "international-agreement",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision",
+      "actor": "controller",
+      "related-to": [
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "enforceable-under-agreement",
+                  "operands": []
+                },
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "international-agreement",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "judgment",
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

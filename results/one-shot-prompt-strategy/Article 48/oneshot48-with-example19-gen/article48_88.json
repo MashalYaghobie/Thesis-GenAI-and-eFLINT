@@ -1,0 +1,99 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable",
+      "identified-by": [
+        "judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "judgment",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-permitted",
+      "identified-by": [
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "third-country",
+      "related-to": [
+        "judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-permitted",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement-duty",
+      "holder": "third-country",
+      "claimant": "controller",
+      "related-to": [
+        "judgment"
+      ]
+    }
+  ],
+  "updates": true
+}

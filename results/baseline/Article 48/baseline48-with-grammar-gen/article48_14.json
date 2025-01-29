@@ -1,0 +1,36 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "JudgmentOrDecision",
+        "d1": "ThirdCountry",
+        "d2": "ControllerOrProcessor",
+        "d*": [],
+        "b*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "RecognitionOrEnforceability",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreement",
+        "δ": "strings",
+        "b": null
+      }
+    }
+  ]
+}

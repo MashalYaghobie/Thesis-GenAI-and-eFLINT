@@ -1,0 +1,39 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "type": "product",
+          "elements": [
+            "rectification",
+            "erasure",
+            "restriction"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "personal_data",
+        "d*": [
+          "Article 16",
+          "Article 17(1)",
+          "Article 18"
+        ],
+        "b*": [
+          "impossible",
+          "disproportionate_effort"
+        ],
+        "c*": [
+          "inform_data_subject",
+          "request_recipients"
+        ],
+        "b?0": null
+      }
+    }
+  ]
+}

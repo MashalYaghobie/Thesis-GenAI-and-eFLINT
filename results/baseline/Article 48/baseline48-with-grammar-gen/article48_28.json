@@ -1,0 +1,32 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "article_48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "article_48",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "article_48",
+        "d1": "transfer_disclosure",
+        "d2": "third_country",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,22 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Notification Obligation",
+        "δ": "string_set('rectification', 'erasure', 'restriction')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "Controller",
+        "d1": "Recipients",
+        "d2": "Data Subject",
+        "d*": "string_set('Article 16', 'Article 17(1)', 'Article 18')",
+        "b*": null,
+        "c*": null,
+        "b?0": null
+      }
+    }
+  ]
+}

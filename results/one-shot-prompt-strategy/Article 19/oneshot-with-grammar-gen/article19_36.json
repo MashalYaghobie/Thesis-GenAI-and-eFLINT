@@ -1,0 +1,123 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-rectification",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-erasure",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-restriction",
+      "identified-by": [
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "informed-recipients",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requested-info",
+      "identified-by": [
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "has-rectification",
+              "operands": []
+            },
+            {
+              "identifier": "has-erasure",
+              "operands": []
+            },
+            {
+              "identifier": "has-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-obligation",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "identifier": "requested-info",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information-duty",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

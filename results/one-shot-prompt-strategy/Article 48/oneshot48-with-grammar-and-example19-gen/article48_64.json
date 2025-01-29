@@ -1,0 +1,125 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-requirement",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-requirement",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "mutual-legal-assistance-treaty",
+      "identified-by": [
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "controller",
+      "related-to": [
+        "third-country",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "judgment-requirement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "international-agreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "mutual-legal-assistance-treaty",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-decision",
+      "actor": "controller",
+      "related-to": [
+        "third-country",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision-requirement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "international-agreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "mutual-legal-assistance-treaty",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,37 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferOrDisclosureNotAuthorisedByUnionLaw",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtJudgmentOrDecision",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "ControllerOrProcessor",
+        "d1": "PersonalData",
+        "d2": "InternationalAgreement",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreement",
+        "δ": "string_set('MutualLegalAssistanceTreaty', 'InForce')",
+        "b": null
+      }
+    }
+  ]
+}

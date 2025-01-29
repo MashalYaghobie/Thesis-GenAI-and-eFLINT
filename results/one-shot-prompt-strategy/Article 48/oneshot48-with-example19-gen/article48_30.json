@@ -1,0 +1,131 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "third-country-requirement",
+      "identified-by": [
+        "third-country",
+        "court-judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "third-country-requirement-decided",
+      "identified-by": [
+        "third-country",
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision",
+      "actor": "controller",
+      "related-to": [
+        "third-country",
+        "court-judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "third-country-requirement",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "third-country",
+        "administrative-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "third-country-requirement-decided",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "court-judgment"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "administrative-decision"
+      ]
+    }
+  ],
+  "updates": true
+}

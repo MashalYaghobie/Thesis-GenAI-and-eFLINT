@@ -1,0 +1,114 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-of-processing",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification",
+      "actor": "controller",
+      "related-to": [
+        "personal-data",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "rectification",
+              "operands": []
+            },
+            {
+              "identifier": "erasure",
+              "operands": []
+            },
+            {
+              "identifier": "restriction-of-processing",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "notification-duty",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

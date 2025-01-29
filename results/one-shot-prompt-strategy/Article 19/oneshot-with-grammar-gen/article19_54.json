@@ -1,0 +1,117 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction_of_processing",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data_subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has_disclosed_data",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requests_info",
+      "identified-by": [
+        "data_subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate_rectification_or_erasure",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "erasure",
+        "personal_data",
+        "restriction_of_processing"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has_disclosed_data",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "requests_info",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification_to_recipients",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform_data_subject",
+      "actor": "controller",
+      "related-to": [
+        "data_subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "identifier": "requests_info",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification_to_data_subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,89 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-possible",
+      "identified-by": [
+        "judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforcement-possible",
+      "identified-by": [
+        "administrative-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "authorize-transfer",
+      "actor": "controller",
+      "related-to": [
+        "third-country",
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "recognition-possible",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforcement-possible",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

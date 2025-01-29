@@ -1,0 +1,141 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-based-on-agreement",
+      "identified-by": [
+        "judgment",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognised-based-on-agreement",
+      "identified-by": [
+        "decision",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "enforceable-based-on-agreement",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "recognised-based-on-agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "judgment"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "recognised-based-on-agreement",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "enforceable-based-on-agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

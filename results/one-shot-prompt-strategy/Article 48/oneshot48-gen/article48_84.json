@@ -1,0 +1,152 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "thirdCountry",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "internationalAgreement",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "mutualLegalAssistanceTreaty",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "thirdCountry"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "decision",
+        "processor",
+        "thirdCountry"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "thirdCountry",
+        "internationalAgreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-mutual-legal-assistance-treaty",
+      "identified-by": [
+        "thirdCountry",
+        "mutualLegalAssistanceTreaty"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "subject",
+      "related-to": [
+        "judgment"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "processor",
+      "claimant": "subject",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

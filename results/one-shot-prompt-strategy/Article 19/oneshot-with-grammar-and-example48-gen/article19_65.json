@@ -1,0 +1,116 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-rectification-by-controller",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "rectification",
+              "operands": []
+            },
+            {
+              "identifier": "erasure",
+              "operands": []
+            },
+            {
+              "identifier": "restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "notification-duty-by-controller",
+              "operands": []
+            },
+            {
+              "identifier": "request-by-data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": []
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-by-controller",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,149 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "tribunal",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-required",
+      "identified-by": [
+        "court",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-required",
+      "identified-by": [
+        "administrative-authority",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-transfer-of-data",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "judgment-required",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-authorisation-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-disclosure-of-data",
+      "actor": "processor",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision-required",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "disclosure-authorisation-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-authorisation-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "disclosure-authorisation-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

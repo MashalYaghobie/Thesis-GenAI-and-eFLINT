@@ -1,0 +1,153 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-recognition-or-enforcement",
+      "identified-by": [
+        "decision",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-recognition-or-enforcement",
+      "identified-by": [
+        "decision",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-data",
+      "actor": "controller",
+      "related-to": [
+        "country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-authorization-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-data-by-processor",
+      "actor": "processor",
+      "related-to": [
+        "country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-authorization-duty-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-authorization-duty",
+      "holder": "controller",
+      "claimant": "country",
+      "related-to": [
+        "decision"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-authorization-duty-processor",
+      "holder": "processor",
+      "claimant": "country",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

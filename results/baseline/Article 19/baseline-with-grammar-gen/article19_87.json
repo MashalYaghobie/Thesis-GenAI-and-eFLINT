@@ -1,0 +1,52 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "string_set": [
+            "rectification",
+            "erasure",
+            "restriction"
+          ]
+        },
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": [
+          "personal_data"
+        ],
+        "b*": [],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "controller",
+        "b?": false,
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": [
+          "personal_data"
+        ],
+        "b?": false,
+        "b?0": false
+      }
+    }
+  ]
+}
+```

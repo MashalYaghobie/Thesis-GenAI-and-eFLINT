@@ -1,0 +1,43 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "transfer_disclosure_unauthorized",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "court_tribunal_decision",
+        "b": false,
+        "c": [
+          "controller",
+          "processor",
+          "personal_data"
+        ],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "international_agreement",
+        "δ": "string_set('mutual_legal_assistance_treaty', 'requesting_third_country', 'Union', 'Member_State')",
+        "b": true
+      }
+    },
+    {
+      "adc": {
+        "d0": "enforceability",
+        "d1": "transfer_grounds",
+        "d2": "chapter_provisions",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,137 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed-to",
+      "identified-by": [
+        "personal-data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-rectification",
+      "identified-by": [
+        "controller",
+        "rectification",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-erasure",
+      "identified-by": [
+        "controller",
+        "erasure",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates-restriction",
+      "identified-by": [
+        "controller",
+        "personal-data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "informs-data-subject",
+      "identified-by": [
+        "controller",
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "communicates-rectification",
+              "operands": []
+            },
+            {
+              "identifier": "communicates-erasure",
+              "operands": []
+            },
+            {
+              "identifier": "communicates-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-obligation",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "informs-data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

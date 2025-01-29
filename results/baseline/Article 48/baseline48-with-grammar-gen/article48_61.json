@@ -1,0 +1,64 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers or disclosures not authorised by Union law",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Any judgment of a court or tribunal",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Any decision of an administrative authority of a third country",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "requirement to transfer or disclose personal data",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "international agreement",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "mutual legal assistance treaty",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Union or a Member State",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "other grounds for transfer",
+        "δ": "strings",
+        "b": null
+      }
+    }
+  ]
+}
+```

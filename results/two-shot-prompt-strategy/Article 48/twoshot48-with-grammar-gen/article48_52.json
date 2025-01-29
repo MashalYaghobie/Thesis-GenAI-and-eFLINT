@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "court",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "administrative_authority",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognised-if-agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement",
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-transfer",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "recognised-if-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-recognition-duty",
+      "holder": "controller",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

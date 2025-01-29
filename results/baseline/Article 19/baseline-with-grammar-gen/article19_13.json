@@ -1,0 +1,42 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "string_set('rectification', 'erasure', 'restriction')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "personal_data",
+        "d2": "recipient",
+        "d*": "string_set('Article 16', 'Article 17(1)', 'Article 18')",
+        "b*": null,
+        "c*": null,
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "data_subject",
+        "b?": null,
+        "c*": null,
+        "b?0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "rectification",
+        "d1": "erasure",
+        "d2": "restriction",
+        "d*": null,
+        "b?": null,
+        "b?0": null
+      }
+    }
+  ]
+}
+```

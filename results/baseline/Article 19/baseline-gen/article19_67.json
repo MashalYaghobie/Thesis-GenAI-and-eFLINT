@@ -1,0 +1,27 @@
+{
+  "eFLINT": {
+    "article": 19,
+    "title": "Notification obligation regarding rectification or erasure of personal data or restriction of processing",
+    "obligations": [
+      {
+        "type": "communication",
+        "description": "The controller shall communicate any rectification or erasure of personal data or restriction of processing.",
+        "conditions": [
+          "in accordance with Article 16",
+          "in accordance with Article 17(1)",
+          "in accordance with Article 18"
+        ],
+        "recipient": "each recipient to whom the personal data have been disclosed",
+        "exceptions": [
+          "impossible communication",
+          "disproportionate effort"
+        ]
+      },
+      {
+        "type": "informing",
+        "description": "The controller shall inform the data subject about those recipients if requested.",
+        "recipient": "data subject"
+      }
+    ]
+  }
+}

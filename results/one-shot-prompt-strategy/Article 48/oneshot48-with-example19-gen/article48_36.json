@@ -1,0 +1,102 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "basis-for-recognition",
+      "identified-by": [
+        "judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country",
+        "agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "basis-for-recognition",
+                  "operands": []
+                },
+                {
+                  "identifier": "basis-for-recognition",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "processor",
+      "related-to": [
+        "judgment",
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

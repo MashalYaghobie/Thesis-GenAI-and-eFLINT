@@ -1,0 +1,83 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-required",
+      "identified-by": [
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-required",
+      "identified-by": [
+        "processor",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "agreement-in-force",
+      "identified-by": [
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-decision",
+      "actor": "controller",
+      "related-to": [
+        "court-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-required",
+              "operands": []
+            },
+            {
+              "identifier": "disclosure-required",
+              "operands": []
+            },
+            {
+              "identifier": "agreement-in-force",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

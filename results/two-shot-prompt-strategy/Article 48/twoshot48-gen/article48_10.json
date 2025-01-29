@@ -1,0 +1,128 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judge-or-tribunal",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "mutual-legal-assistance-treaty",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "judge-or-tribunal",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "administrative-authority",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "third-country",
+        "mutual-legal-assistance-treaty"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-transfer-or-disclosure",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "requires-transfer-or-disclosure",
+                  "operands": []
+                },
+                {
+                  "identifier": "requires-transfer-or-disclosure",
+                  "operands": []
+                }
+              ]
+            },
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "authorization-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "authorization-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "judgment",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-recognised",
+      "identified-by": [
+        "decision",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision",
+      "actor": "controller",
+      "related-to": [
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision-recognised",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "transfer-authorised",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-judgment",
+      "actor": "processor",
+      "related-to": [
+        "judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorised",
+              "operands": []
+            },
+            {
+              "identifier": "third-country",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "international-agreement-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "international-agreement"
+      ]
+    }
+  ],
+  "updates": true
+}

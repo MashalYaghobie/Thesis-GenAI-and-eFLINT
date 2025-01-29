@@ -1,0 +1,131 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data_subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction_of_processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed_to",
+      "identified-by": [
+        "personal_data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requests_information",
+      "identified-by": [
+        "data_subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify_recipients",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "rectification",
+              "operands": []
+            },
+            {
+              "identifier": "erasure",
+              "operands": []
+            },
+            {
+              "identifier": "restriction_of_processing",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification_duty_to_recipients",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform_data_subject",
+      "actor": "controller",
+      "related-to": [
+        "data_subject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "identifier": "requests_information",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information_duty_to_data_subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification_duty_to_recipients",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "information_duty_to_data_subject",
+      "holder": "controller",
+      "claimant": "data_subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

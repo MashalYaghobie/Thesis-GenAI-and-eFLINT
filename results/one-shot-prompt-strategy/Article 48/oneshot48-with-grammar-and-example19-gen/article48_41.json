@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorized",
+      "identified-by": [
+        "court-decision",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-authorized",
+      "identified-by": [
+        "administrative-authority-decision",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "agreement-in-force",
+      "identified-by": [
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-transfer",
+      "actor": "controller",
+      "related-to": [
+        "court-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorized",
+              "operands": []
+            },
+            {
+              "identifier": "agreement-in-force",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-disclosure",
+      "actor": "processor",
+      "related-to": [
+        "administrative-authority-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-authorized",
+              "operands": []
+            },
+            {
+              "identifier": "agreement-in-force",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,122 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorized",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-enforceable",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-enforceable",
+      "identified-by": [
+        "decision",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-jurisdiction",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "decision",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "transfer-authorized",
+                  "operands": []
+                },
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "judgment-enforceable",
+                      "operands": []
+                    },
+                    {
+                      "identifier": "decision-enforceable",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

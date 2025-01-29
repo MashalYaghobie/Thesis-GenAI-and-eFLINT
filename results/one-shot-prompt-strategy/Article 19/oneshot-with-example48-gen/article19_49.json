@@ -1,0 +1,115 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipients",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification",
+      "actor": "controller",
+      "related-to": [
+        "personal-data",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "rectification",
+              "operands": []
+            },
+            {
+              "identifier": "erasure",
+              "operands": []
+            },
+            {
+              "identifier": "restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-requirement",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "notification-requirement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": []
+    },
+    {
+      "kind": "duty",
+      "name": "notification-requirement",
+      "holder": "controller",
+      "claimant": "recipients",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

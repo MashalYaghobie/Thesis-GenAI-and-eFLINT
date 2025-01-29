@@ -1,0 +1,99 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "third-country",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-international-agreement",
+      "identified-by": [
+        "third-country",
+        "processor"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-or-enforce",
+      "actor": "court",
+      "related-to": [
+        "court-judgment",
+        "administrative-decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "court",
+      "claimant": "controller",
+      "related-to": [
+        "court-judgment",
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "court",
+      "claimant": "processor",
+      "related-to": [
+        "court-judgment",
+        "administrative-decision"
+      ]
+    }
+  ],
+  "updates": true
+}

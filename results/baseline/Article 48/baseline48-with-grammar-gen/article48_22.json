@@ -1,0 +1,31 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article48",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "Article48",
+        "d1": "transfer_or_disclosure",
+        "d2": "personal_data",
+        "d*": [],
+        "b": false,
+        "b0": false
+      }
+    }
+  ]
+}
+```

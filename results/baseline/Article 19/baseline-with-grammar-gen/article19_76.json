@@ -1,0 +1,57 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "type": "product",
+          "elements": [
+            {
+              "type": "strings",
+              "value": "rectification"
+            },
+            {
+              "type": "strings",
+              "value": "erasure"
+            },
+            {
+              "type": "strings",
+              "value": "restriction_of_processing"
+            }
+          ]
+        },
+        "b": true
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": [
+          "article_16",
+          "article_17_1",
+          "article_18"
+        ],
+        "b*": [
+          false,
+          true
+        ],
+        "c*": [
+          "notify_recipients"
+        ],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "request_for_recipients",
+        "b?": true,
+        "c*": [
+          "data_subject"
+        ],
+        "b?0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-action",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure-action",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-action",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "not-impossible",
+              "operands": []
+            },
+            {
+              "identifier": "not-disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-rectification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "not-impossible",
+              "operands": []
+            },
+            {
+              "identifier": "not-disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-erasure",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "not-impossible",
+              "operands": []
+            },
+            {
+              "identifier": "not-disproportionate-effort",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-restriction",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-subject-request",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information-duty-data-subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-rectification",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "rectification"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-erasure",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "erasure"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-restriction",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "restriction"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "information-duty-data-subject",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

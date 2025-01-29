@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_or_disclosures_not_authorised_by_Union_law",
+        "δ": "string_set('Any judgment of a court or tribunal', 'any decision of an administrative authority of a third country', 'personal data', 'international agreement', 'mutual legal assistance treaty')",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "court_or_tribunal_judgment",
+        "d1": "administrative_authority_decision",
+        "d2": "third_country_controller_processor",
+        "d*": "international_agreement_declaration",
+        "b*": ["only_recognised_if_based_on_agreement"],
+        "c*": ["transfer_conditions"],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "transfer_request",
+        "b?": false,
+        "c*": ["international_agreement"],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "transfer_condition",
+        "d1": "third_country_request",
+        "d2": "Union_or_Member_State",
+        "d*": "other_grounds_for_transfer",
+        "b?": true,
+        "b?0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "eFLINT": {
+    "NotificationObligation": {
+      "description": "Obligation of the controller to notify about rectification or erasure of personal data",
+      "requirements": {
+        "rectificationOrErasure": {
+          "articles": [
+            "Article 16",
+            "Article 17(1)",
+            "Article 18"
+          ],
+          "action": "communicate",
+          "to": "each recipient",
+          "conditions": {
+            "if": {
+              "impossible": true,
+              "disproportionateEffort": true
+            },
+            "then": "no obligation to communicate"
+          }
+        },
+        "dataSubjectNotification": {
+          "action": "inform",
+          "subject": "data subject",
+          "request": "about recipients of personal data"
+        }
+      }
+    }
+  }
+}

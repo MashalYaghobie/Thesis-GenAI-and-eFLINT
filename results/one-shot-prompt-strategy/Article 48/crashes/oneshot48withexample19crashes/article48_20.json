@@ -1,0 +1,104 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-allowed",
+      "identified-by": [
+        "third-country",
+        "court-judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-allowed",
+      "identified-by": [
+        "third-country",
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country",
+        "Union"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "court",
+      "related-to": [
+        "court-judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "transfer-allowed",
+                  "operands": []
+                },
+                {
+                  "identifier": "disclosure-allowed",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceability",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "obligation-for-transfer-or-disclosure",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "court-judgment",
+        "administrative-decision"
+      ]
+    }
+  ],
+  "updates": true
+}

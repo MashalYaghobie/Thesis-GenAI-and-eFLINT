@@ -1,0 +1,5 @@
+```
+specifications ::= fdecl("notification_obligation", 
+                            string_set("rectification", "erasure", "restriction of processing"), 
+                            b?("disproportionate effort")) 
+```

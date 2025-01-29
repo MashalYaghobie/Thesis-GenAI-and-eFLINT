@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-judgment",
+      "identified-by": [
+        "judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-decision",
+      "identified-by": [
+        "decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "enforceable-judgment",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforceable-decision",
+                  "operands": []
+                }
+              ]
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-authorization",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-authorization",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

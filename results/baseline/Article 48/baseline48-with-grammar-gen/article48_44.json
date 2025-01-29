@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureNotAuthorized",
+        "δ": {
+          "string_set": [
+            "courtOrTribunalJudgment",
+            "administrativeAuthorityDecision",
+            "internationalAgreement"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "RecognitionEnforceability",
+        "b": null,
+        "c": [
+          "BasedOnInternationalAgreement",
+          "RequestingThirdCountry",
+          "UnionOrMemberState"
+        ],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "ControllerOrProcessor",
+        "d1": "TransferDisclosure",
+        "d2": "PersonalData",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": null
+      }
+    }
+  ]
+}

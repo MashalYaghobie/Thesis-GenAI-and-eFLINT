@@ -1,0 +1,32 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "string_set('rectification', 'erasure', 'restriction')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "personal_data",
+        "d*": null,
+        "b*": ["unless_impossible", "involves_disproportionate_effort"],
+        "c*": ["inform_data_subject"],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "data_subject",
+        "b?": null,
+        "c*": ["request_recipients"],
+        "b?0": null
+      }
+    }
+  ]
+}
+```

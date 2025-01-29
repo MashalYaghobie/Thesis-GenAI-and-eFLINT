@@ -1,0 +1,128 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "court-decision",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "administrative-decision",
+      "identified-by": [
+        "decision",
+        "processor",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "valid-transfer",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-court-decision",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "court-decision",
+              "operands": []
+            },
+            {
+              "identifier": "valid-transfer",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognized-court-decision",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-administrative-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision",
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "administrative-decision",
+              "operands": []
+            },
+            {
+              "identifier": "valid-transfer",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognized-administrative-decision",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

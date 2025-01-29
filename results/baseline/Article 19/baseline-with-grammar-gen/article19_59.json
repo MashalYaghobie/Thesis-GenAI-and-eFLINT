@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Notification Obligation",
+        "δ": "string_set('rectification', 'erasure', 'restriction of processing')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "rectification",
+        "d2": "erasure",
+        "d*": ["restriction of processing"],
+        "b*": ["disproportionate effort"],
+        "c*": ["data subject"],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "recipient",
+        "b": null,
+        "c*": ["personal data"],
+        "b?0": null
+      }
+    }
+  ]
+}

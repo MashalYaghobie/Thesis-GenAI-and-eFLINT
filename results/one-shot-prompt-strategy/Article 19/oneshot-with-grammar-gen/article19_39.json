@@ -1,0 +1,141 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "dataSubject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restrictionOfProcessing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "rectification",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "erasure",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "restrictionOfProcessing",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "data-disclosed",
+      "identified-by": [
+        "recipient",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requests-information",
+      "identified-by": [
+        "dataSubject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-recipients",
+      "actor": "controller",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-disclosed",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "rectification",
+                  "operands": []
+                },
+                {
+                  "identifier": "erasure",
+                  "operands": []
+                },
+                {
+                  "identifier": "restrictionOfProcessing",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "identifier": "requests-information",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-to-data-subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,212 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-notification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure-notification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-notification",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "personal-data",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "rectification-duty-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "personal-data",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "erasure-duty-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction-of-processing",
+        "personal-data",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "impossible",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "restriction-duty-notification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "data-subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "request",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "inform-duty-data-subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "rectification-duty-notification",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "erasure-duty-notification",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "restriction-duty-notification",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "inform-duty-data-subject",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-conditions",
+      "identified-by": [
+        "judgment",
+        "decision",
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "recognition-conditions",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "judgment",
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

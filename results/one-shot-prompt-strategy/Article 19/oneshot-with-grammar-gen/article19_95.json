@@ -1,0 +1,115 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restrictionOfProcessing",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "dataSubject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosureToRecipient",
+      "identified-by": [
+        "personalData",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "hasRequestFromDataSubject",
+      "identified-by": [
+        "dataSubject"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicateRectificationOrErasure",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "erasure",
+        "personalData",
+        "restrictionOfProcessing"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "disclosureToRecipient",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "hasRequestFromDataSubject",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notificationToRecipient",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "informDataSubject",
+      "actor": "controller",
+      "related-to": [
+        "dataSubject",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "identifier": "hasRequestFromDataSubject",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "informationToDataSubject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

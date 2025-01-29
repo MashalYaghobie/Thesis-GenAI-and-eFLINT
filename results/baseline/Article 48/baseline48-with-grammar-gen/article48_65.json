@@ -1,0 +1,31 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Transfer_Disclosure_Unlawfulness",
+        "b": false,
+        "c": ["court_judgment", "administrative_decision", "third_country"],
+        "b0": false
+      }
+    },
+    {
+      "dc": {
+        "d0": "Controller_Processor",
+        "d1": "Personal_Data",
+        "d2": "International_Agreement",
+        "d*": [],
+        "b": false,
+        "b0": false
+      }
+    }
+  ]
+}
+```

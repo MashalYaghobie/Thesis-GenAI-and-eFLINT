@@ -1,0 +1,115 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "court-decision-requires-transfer",
+      "identified-by": [
+        "court-decision",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "administrative-decision-requires-transfer",
+      "identified-by": [
+        "administrative-decision",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-data",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "court-decision-requires-transfer",
+                  "operands": []
+                },
+                {
+                  "identifier": "administrative-decision-requires-transfer",
+                  "operands": []
+                }
+              ]
+            },
+            {
+              "identifier": "enforceable-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-duty",
+      "holder": "controller",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,170 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer",
+      "identified-by": [
+        "decision",
+        "processor",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognizable_based_on_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable_based_on_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer_data_by_controller",
+      "actor": "controller",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "recognizable_based_on_agreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforceable_based_on_agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer_duty_by_controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer_data_by_processor",
+      "actor": "processor",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "recognizable_based_on_agreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforceable_based_on_agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer_duty_by_processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer_duty_by_controller",
+      "holder": "controller",
+      "claimant": "personal_data",
+      "related-to": [
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer_duty_by_processor",
+      "holder": "processor",
+      "claimant": "personal_data",
+      "related-to": [
+        "personal_data"
+      ]
+    }
+  ],
+  "updates": true
+}

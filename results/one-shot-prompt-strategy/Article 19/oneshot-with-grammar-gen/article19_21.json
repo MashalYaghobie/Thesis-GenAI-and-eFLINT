@@ -1,0 +1,126 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data_subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed_to",
+      "identified-by": [
+        "personal_data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "informed_to_data_subject",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "data_subject"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify_recipient",
+      "actor": "controller",
+      "related_to": [
+        "rectification",
+        "erasure",
+        "restriction",
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosed_to",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "impossible",
+                  "operands": []
+                },
+                {
+                  "identifier": "disproportionate_effort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification_obligation",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform_data_subject",
+      "actor": "controller",
+      "related_to": [
+        "recipient",
+        "data_subject"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data_subject",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information_to_data_subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

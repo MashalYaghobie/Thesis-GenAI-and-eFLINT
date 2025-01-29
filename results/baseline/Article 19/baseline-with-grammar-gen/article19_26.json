@@ -1,0 +1,12 @@
+```
+specifications ::= 
+    fdecl("notification_obligation", 
+          string_set("rectification", "erasure", "restriction of processing"), 
+          b?),
+    fdecl("controller_communication", 
+          string_set("Article 16", "Article 17(1)", "Article 18"), 
+          b?),
+    fdecl("recipient_notification", 
+          string_set("data subject", "recipients"), 
+          b?)
+```

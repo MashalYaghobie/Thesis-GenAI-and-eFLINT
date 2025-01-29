@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "processor",
+        "d2": "personal_data",
+        "d*": ["court_judgment", "administrative_decision"],
+        "b*": ["based_on_international_agreement"],
+        "c*": ["mutual_legal_assistance_treaty"],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "transfer_disclosure",
+        "b?": null,
+        "c*": ["recognized_enforceable"],
+        "b?0": null
+      }
+    }
+  ]
+}

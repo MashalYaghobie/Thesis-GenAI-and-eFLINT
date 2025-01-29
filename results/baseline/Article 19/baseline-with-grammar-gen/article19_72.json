@@ -1,0 +1,6 @@
+```
+specifications ::= 
+    fdecl("Notification Obligation", 
+          string_set("rectification", "erasure", "restriction"), 
+          boolean_expr("proportional_effort"))
+```

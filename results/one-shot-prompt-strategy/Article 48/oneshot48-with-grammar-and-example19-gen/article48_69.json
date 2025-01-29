@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "tribunal",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-recognized",
+      "identified-by": [
+        "court",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-recognized",
+      "identified-by": [
+        "administrative-authority",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country",
+        "Union"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "mutual-legal-assistance-treaty",
+      "identified-by": [
+        "third-country",
+        "Union"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "judgment-recognized",
+                  "operands": []
+                },
+                {
+                  "identifier": "decision-recognized",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": []
+    }
+  ],
+  "updates": true
+}

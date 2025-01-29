@@ -1,0 +1,22 @@
+{
+  "Article": 48,
+  "Title": "Transfers or disclosures not authorised by Union law",
+  "Content": {
+    "Description": "Judgments and decisions from third country authorities regarding personal data transfers or disclosures.",
+    "Conditions": [
+      {
+        "Condition": "Recognition or enforcement",
+        "Requirement": "Only based on an international agreement",
+        "Examples": [
+          "mutual legal assistance treaty"
+        ],
+        "Scope": [
+          "requesting third country",
+          "Union",
+          "Member State"
+        ],
+        "Notes": "Without prejudice to other grounds for transfer pursuant to this Chapter."
+      }
+    ]
+  }
+}

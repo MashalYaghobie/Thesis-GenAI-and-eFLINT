@@ -1,0 +1,33 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "JudgmentOrDecisionRequirement",
+        "b": "true",
+        "c": [
+          "controllerOrProcessor"
+        ],
+        "b0": "false"
+      }
+    },
+    {
+      "ddc": {
+        "d0": "InternationalAgreementRequirement",
+        "d1": "MutualLegalAssistanceTreaty",
+        "d2": "EnforceableTransfer",
+        "d*": [],
+        "b": "true",
+        "b0": "false"
+      }
+    }
+  ]
+}
+```

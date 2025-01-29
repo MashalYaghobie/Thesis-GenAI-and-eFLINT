@@ -1,0 +1,132 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorized",
+      "identified-by": [
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-not-authorized",
+      "identified-by": [
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-judgment-decision",
+      "actor": "court-or-tribunal",
+      "related-to": [
+        "judgment",
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorized",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "judgment",
+                  "operands": []
+                },
+                {
+                  "identifier": "decision",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "court-or-tribunal",
+      "claimant": "controller",
+      "related-to": [
+        "judgment",
+        "decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-transfer",
+      "actor": "controller",
+      "related-to": [
+        "processor",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorized",
+              "operands": []
+            },
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "transfer-not-authorized",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,101 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "judgment",
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-under-agreement",
+      "identified-by": [
+        "judgment",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-grounds",
+      "identified-by": [
+        "controller",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-transfer",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorised",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-under-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-recognition-duty",
+      "holder": "controller",
+      "claimant": "processor",
+      "related-to": [
+        "judgment"
+      ]
+    }
+  ],
+  "updates": true
+}

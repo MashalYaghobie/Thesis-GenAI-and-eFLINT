@@ -1,0 +1,47 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "transfers_or_disclosures_not_authorised",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "personal_data_transfer",
+        "b": null,
+        "c": [
+          "judgment_of_a_court_or_tribunal",
+          "decision_of_an_administrative_authority"
+        ],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "third_country",
+        "d1": "controller",
+        "d2": "processor",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "international_agreement",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "mutual_legal_assistance_treaty",
+        "δ": "strings",
+        "b": null
+      }
+    }
+  ]
+}

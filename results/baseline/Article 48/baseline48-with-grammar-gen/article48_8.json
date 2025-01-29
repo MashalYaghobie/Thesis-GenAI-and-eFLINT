@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_or_disclosures_not_authorised_by_Union_law",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "Any_judgment_of_a_court_or_tribunal",
+        "d1": "Any_decision_of_an_administrative_authority",
+        "d2": "third_country",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "international_agreement",
+        "b?": false,
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "transfer_required_by_third_country",
+        "d1": "enforceable_in_any_manner",
+        "d2": "recognised_only_if_based_on_agreement",
+        "d*": [],
+        "b?": false,
+        "b?0": false
+      }
+    }
+  ]
+}

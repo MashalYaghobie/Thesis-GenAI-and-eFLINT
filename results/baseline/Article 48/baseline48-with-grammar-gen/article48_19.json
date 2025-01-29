@@ -1,0 +1,55 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtOrTribunalJudgment",
+        "b": false,
+        "c": ["ControllerOrProcessor", "PersonalData"],
+        "b0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "DecisionOfAdministrativeAuthority",
+        "b": false,
+        "c": ["ControllerOrProcessor", "PersonalData"],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreementRequirement",
+        "δ": "string",
+        "b": true
+      }
+    },
+    {
+      "fdc": {
+        "d": "MutualLegalAssistanceTreaty",
+        "δ": "string",
+        "b": true
+      }
+    },
+    {
+      "fdc": {
+        "d": "ConnectionToUnionOrMemberState",
+        "δ": "string",
+        "b": true
+      }
+    },
+    {
+      "fdc": {
+        "d": "OtherGroundsForTransfer",
+        "δ": "string",
+        "b": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+        "model": "gpt-4o-mini",
+        "messages": [
+            {
+                "role": "system",
+                "content": """You will convert the given article into a JSON specification of eFLINT language. Ensure that the output contains no extraneous text.
+                Follow the rules of the eFLINT language as defined by the abstract syntax (BNF grammar) below.
+
+                x ∈ type_ids ::= ...                     
+                s ∈ strings ::= ...                      
+                z ∈ Z ::= {0, 1, ..., -1, -2, ...}       
+                i ∈ instance_exprs ::= ...               
+                b ∈ boolean_exprs ::= ...                
+
+                δ ∈ domains ::=     strings                              
+                                  | string_set(s1, ..., sn)              
+                                  | Z                                    
+                                  | int_set(z1, ..., zn)                 
+                                  | product(x1, ..., xn)                 
+                                  | ...                                  
+
+                fdc ∈ fact_decls ::= fdecl(d, δ, b?)     
+                
+                adc ∈ act_decls ::= adecl(d0, d1, d2, d*, b*, c*, b?0)   
+
+                edc ∈ event_decls ::= edecl(d0, b?, c*, b?0)              
+
+                ddc ∈ duty_decls ::= ddecl(d0, d1, d2, d*, b?, b?0)       
+
+                c ∈ posts ::=        create(i)                            
+                                   | terminate(i)                        
+
+                dc ∈ decls ::=       fdc                                  
+                                   | adc                                  
+                                   | edc                                  
+                                   | ddc                                  
+                                   | ...                                  
+
+                specifications ::= dc* 
+                """
+            },
+            {
+                "role": "user",
+                "content": """Here are examples of the JSON specification of eFLINT language for Article 29 and 19:
+
+Article 29
+Processing under the authority of the controller or processor
+
+The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law.
+
+Its JSON specification:
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "person",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "acts-under-authority",
+      "identified-by": [
+        "person",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "acts-under-authority",
+      "identified-by": [
+        "person",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-access",
+      "identified-by": [
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-access",
+      "identified-by": [
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "instruction-from-controller",
+      "identified-by": [
+        "controller",
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "instruction-from-controller",
+      "identified-by": [
+        "controller",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "required-by-law",
+      "identified-by": [
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "required-by-law",
+      "identified-by": [
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "process-data-by-person",
+      "actor": "person",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-access",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "acts-under-authority",
+                  "operands": []
+                },
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "instruction-from-controller",
+                      "operands": []
+                    },
+                    {
+                      "identifier": "required-by-law",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "processing-duty-by-person",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "process-data-by-processor",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-access",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "instruction-from-controller",
+                  "operands": []
+                },
+                {
+                  "identifier": "required-by-law",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "processing-duty-by-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "processing-duty-by-person",
+      "holder": "person",
+      "claimant": "subject",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "processing-duty-by-processor",
+      "holder": "processor",
+      "claimant": "subject",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}
+
+Article 19
+Notification obligation regarding rectification or erasure of personal data or restriction of processing
+
+The controller shall communicate any rectification or erasure of personal data or restriction of processing carried out in accordance with Article 16, Article 17(1) and Article 18 to each recipient to whom the personal data have been disclosed, unless this proves impossible or involves disproportionate effort. The controller shall inform the data subject about those recipients if the data subject requests it.
+
+Its JSON specification:
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed-to",
+      "identified-by": [
+        "data",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification-completed",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure-completed",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-completed",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-impossible",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notification-disproportionate",
+      "identified-by": [
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "subject-requests-info",
+      "identified-by": [
+        "subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosed-to",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "rectification-completed",
+                      "operands": []
+                    },
+                    {
+                      "operator": "OR",
+                      "operands": [
+                        {
+                          "identifier": "erasure-completed",
+                          "operands": []
+                        },
+                        {
+                          "identifier": "restriction-completed",
+                          "operands": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operator": "AND",
+                  "operands": [
+                    {
+                      "operator": "NOT",
+                      "operands": [
+                        {
+                          "identifier": "notification-impossible",
+                          "operands": []
+                        }
+                      ]
+                    },
+                    {
+                      "operator": "NOT",
+                      "operands": [
+                        {
+                          "identifier": "notification-disproportionate",
+                          "operands": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "subject",
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "subject-requests-info",
+              "operands": []
+            },
+            {
+              "identifier": "disclosed-to",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "subject-notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "subject-notification-duty",
+      "holder": "controller",
+      "claimant": "subject",
+      "related-to": [
+        "data"
+      ]
+    }  
+  ],
+  "updates": true
+}
+
+Now, using these examples, convert the following article into JSON specification of eFLINT language.
+
+Article 48
+Transfers or disclosures not authorised by Union law
+
+Any judgment of a court or tribunal and any decision of an administrative authority of a third country requiring a controller or processor to transfer or disclose personal data may only be recognised or enforceable in any manner if based on an international agreement, such as a mutual legal assistance treaty, in force between the requesting third country and the Union or a Member State, without prejudice to other grounds for transfer pursuant to this Chapter. 
+"""
+            }
+        ]
+    }

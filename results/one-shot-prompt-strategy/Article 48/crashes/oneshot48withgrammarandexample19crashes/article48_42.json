@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognized-transfer",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "mutual-legal-assistance-treaty",
+      "identified-by": [
+        "third-country",
+        "Union"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "authorize-transfer",
+      "actor": "Union",
+      "related-to": [
+        "controller",
+        "processor",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "recognized-transfer",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "based-on-agreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "mutual-legal-assistance-treaty",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "authorization-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "authorization-duty",
+      "holder": "Union",
+      "claimant": "third-country",
+      "related-to": [
+        "controller",
+        "processor"
+      ]
+    }
+  ],
+  "updates": true
+}

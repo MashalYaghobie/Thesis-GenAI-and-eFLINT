@@ -1,0 +1,112 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "rectification",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "erasure",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "restriction-of-processing",
+      "identified-by": [
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT-IMPOSIBLE",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT-IMPOSIBLE",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction-of-processing",
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT-IMPOSIBLE",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "recipient"
+      ],
+      "holds-when": [
+        {
+          "operator": "REQUEST",
+          "operands": [
+            {
+              "identifier": "data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

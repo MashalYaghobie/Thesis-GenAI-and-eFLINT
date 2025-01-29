@@ -1,0 +1,102 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-or-tribunal-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "requesting-third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-conditional-on-agreement",
+      "identified-by": [
+        "court-or-tribunal-decision",
+        "requesting-third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-conditional-on-agreement",
+      "identified-by": [
+        "administrative-authority-decision",
+        "requesting-third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-data",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "recognition-conditional-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-conditional-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "require-authorization-for-transfer",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "recognition-conditional-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

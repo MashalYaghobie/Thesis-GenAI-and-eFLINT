@@ -1,0 +1,163 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "third-country",
+        "controller",
+        "data",
+        "judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "third-country",
+        "processor",
+        "data",
+        "decision"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "agreement-in-force",
+      "identified-by": [
+        "agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "agreement-in-force",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision",
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "agreement-in-force",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty-decision",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty-decision",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,98 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "controller",
+        "third-country",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-decision",
+      "identified-by": [
+        "court-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-default",
+      "actor": "court",
+      "related-to": [
+        "court-decision",
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "operator": "NOT",
+              "operands": [
+                {
+                  "identifier": "transfer-authorised",
+                  "operands": []
+                }
+              ]
+            },
+            {
+              "identifier": "enforceable-decision",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "restricted-transfer",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "restricted-transfer",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

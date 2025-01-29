@@ -1,0 +1,93 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-requirement",
+      "identified-by": [
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-conditional",
+      "identified-by": [
+        "court-judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceability-conditional",
+      "identified-by": [
+        "administrative-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer",
+      "actor": "controller",
+      "related-to": [
+        "personal-data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-requirement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "recognition-conditional",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforceability-conditional",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

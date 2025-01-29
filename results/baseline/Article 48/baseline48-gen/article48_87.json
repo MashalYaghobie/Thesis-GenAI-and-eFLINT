@@ -1,0 +1,27 @@
+{
+  "Article": {
+    "number": 48,
+    "title": "Transfers or disclosures not authorised by Union law",
+    "content": {
+      "conditions": [
+        {
+          "type": "judgment",
+          "body": "Any judgment of a court or tribunal requiring a controller or processor to transfer or disclose personal data"
+        },
+        {
+          "type": "decision",
+          "body": "Any decision of an administrative authority of a third country requiring a controller or processor to transfer or disclose personal data"
+        }
+      ],
+      "rules": [
+        {
+          "condition": "The judgment or decision may only be recognized or enforceable",
+          "requirement": "if based on an international agreement",
+          "example": "such as a mutual legal assistance treaty",
+          "status": "in force between the requesting third country and the Union or a Member State"
+        }
+      ],
+      "note": "This is without prejudice to other grounds for transfer pursuant to this Chapter."
+    }
+  }
+}

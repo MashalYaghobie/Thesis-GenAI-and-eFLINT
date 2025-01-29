@@ -1,0 +1,154 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-requires-transfer",
+      "identified-by": [
+        "court-decision",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-requires-disclosure",
+      "identified-by": [
+        "court-decision",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-based-on-agreement",
+      "identified-by": [
+        "international-agreement",
+        "third-country",
+        "Union"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-under-agreement",
+      "identified-by": [
+        "court-decision",
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer-decision",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision-requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-disclosure-decision",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "decision-requires-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "disclosure-enforcement-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "disclosure-enforcement-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

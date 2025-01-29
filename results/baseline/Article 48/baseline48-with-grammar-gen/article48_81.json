@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransferOrDisclosureDecision",
+        "b": null,
+        "c": [
+          "courtJudgment",
+          "administrativeAuthorityDecision"
+        ],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "RequestingThirdCountry",
+        "d1": "UnionOrMemberState",
+        "d2": "InternationalAgreement",
+        "d*": ["mutualLegalAssistanceTreaty"],
+        "b*": null,
+        "c*": null,
+        "b0": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "RecognitionOrEnforceability",
+        "δ": "string",
+        "b": null
+      }
+    }
+  ]
+}

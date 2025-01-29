@@ -1,0 +1,114 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer",
+      "identified-by": [
+        "court_decision",
+        "controller",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_disclosure",
+      "identified-by": [
+        "court_decision",
+        "processor",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based_on_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise_enforce_transfer",
+      "actor": "controller",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise_enforce_disclosure",
+      "actor": "processor",
+      "related-to": [
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

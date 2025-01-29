@@ -1,0 +1,156 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "court-judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "administrative-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-transfer",
+      "identified-by": [
+        "controller",
+        "third-country",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-court-judgment",
+      "actor": "controller",
+      "related-to": [
+        "court-judgment",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "enforceable-transfer",
+                  "operands": []
+                },
+                {
+                  "identifier": "court-judgment",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-administrative-decision",
+      "actor": "processor",
+      "related-to": [
+        "administrative-decision",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-transfer",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "court-judgment",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty-processor",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "administrative-decision",
+        "personal-data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,171 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "transfer",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "disclosure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court",
+        "third-country",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure",
+      "identified-by": [
+        "court",
+        "third-country",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure-admin",
+      "identified-by": [
+        "administrative-authority",
+        "third-country",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer-or-disclosure-admin",
+      "identified-by": [
+        "administrative-authority",
+        "third-country",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-with-agreement",
+      "identified-by": [
+        "international-agreement",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer-or-disclosure",
+      "actor": "controller",
+      "related-to": [
+        "transfer",
+        "disclosure"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-with-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer-or-disclosure-admin",
+      "actor": "controller",
+      "related-to": [
+        "transfer",
+        "disclosure"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer-or-disclosure-admin",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-with-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "admin-recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "transfer",
+        "disclosure"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "admin-recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "transfer",
+        "disclosure"
+      ]
+    }
+  ],
+  "updates": true
+}

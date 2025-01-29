@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransferDisclosure",
+        "b": false,
+        "c": ["courtDecision", "administrativeDecision"],
+        "b0": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "InternationalAgreement",
+        "d1": "MutualLegalAssistanceTreaty",
+        "d2": "Union",
+        "d*": ["MemberState"],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}

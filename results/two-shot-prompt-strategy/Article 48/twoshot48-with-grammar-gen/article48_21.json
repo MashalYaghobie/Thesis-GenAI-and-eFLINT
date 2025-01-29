@@ -1,0 +1,129 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-requirement",
+      "identified-by": [
+        "controller",
+        "court-decision"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-requirement",
+      "identified-by": [
+        "processor",
+        "court-decision"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "decision-by-authority",
+      "identified-by": [
+        "third-country",
+        "administrative-authority-decision"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfer",
+      "actor": "controller",
+      "related-to": [
+        "court-decision",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-requirement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-authorization",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-transfer",
+      "actor": "processor",
+      "related-to": [
+        "court-decision",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-requirement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement-authorization",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

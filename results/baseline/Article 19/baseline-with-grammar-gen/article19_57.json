@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "string_set('rectification', 'erasure', 'restriction')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "recipient_list",
+        "d*": "string_set('personal_data', 'disclosure')",
+        "b*": "boolean_exprs",
+        "c*": "string_set('inform_data_subject')",
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "data_subject",
+        "b?": null,
+        "c*": "string_set('request_recipients')",
+        "b?0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "rectification",
+        "d1": "erasure",
+        "d2": "restriction",
+        "d*": "string_set('processing')",
+        "b?": null,
+        "b?0": null
+      }
+    }
+  ]
+}

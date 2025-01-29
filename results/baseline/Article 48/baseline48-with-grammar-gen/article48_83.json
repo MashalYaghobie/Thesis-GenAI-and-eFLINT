@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "judgment_enforcement",
+        "δ": "string_set('court', 'tribunal', 'administrative authority')",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "transferDisclosure",
+        "b": "false",
+        "c": [
+          "internationalAgreement",
+          "mutualLegalAssistanceTreaty"
+        ],
+        "b0": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "thirdCountryRequirement",
+        "δ": "string_set('controller', 'processor')",
+        "b": "true"
+      }
+    },
+    {
+      "edc": {
+        "d0": "transferConditions",
+        "b": "false",
+        "c": [
+          "enforceableConsent",
+          "otherGroundsTransfer"
+        ],
+        "b0": "true"
+      }
+    }
+  ]
+}

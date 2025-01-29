@@ -1,0 +1,25 @@
+{
+  "Article": 48,
+  "Title": "Transfers or disclosures not authorised by Union law",
+  "Description": "Conditions under which judgments or decisions of third countries about personal data transfers or disclosures may be recognized or enforced.",
+  "Conditions": {
+    "Judgments_or_Decisions": {
+      "Type": [
+        "Court Judgment",
+        "Tribunal Judgment",
+        "Administrative Authority Decision"
+      ],
+      "Requirements": {
+        "Recognition_Enforcement": "May only be recognized or enforced if based on an international agreement",
+        "Examples_of_Agreements": [
+          "Mutual Legal Assistance Treaty"
+        ],
+        "Applicable_Law": [
+          "Agreement must be in force between the requesting third country and the Union",
+          "Agreement must be in force between the requesting third country and a Member State"
+        ]
+      }
+    },
+    "Other_Grounds": "This provision does not prejudice other grounds for transfer pursuant to this Chapter."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court/tribunal",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-authority",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "requesting-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "union",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "member-state",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "requesting-country",
+        "union",
+        "member-state"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-judgment",
+      "identified-by": [
+        "court/tribunal",
+        "requesting-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "legal-agreement",
+      "identified-by": [
+        "requesting-country",
+        "union",
+        "member-state"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-transfer",
+      "actor": "controller",
+      "related-to": [
+        "processor"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorised",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "enforceable-judgment",
+                  "operands": []
+                },
+                {
+                  "operator": "AND",
+                  "operands": [
+                    {
+                      "identifier": "legal-agreement",
+                      "operands": []
+                    },
+                    {
+                      "identifier": "requesting-country",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,469 @@
+{
+        "model": "gpt-4o-mini",
+        "messages": [
+            {
+                "role": "system",
+                "content": """You will convert the given article into a JSON specification of eFLINT language. Ensure that the output contains no extraneous text.
+                """
+            },
+            {
+                "role": "user",
+                "content": """Here are examples of JSON specifications of eFLINT language for Articles 29 and 48:
+
+Article 29
+Processing under the authority of the controller or processor
+
+The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law.
+
+Its JSON specification:
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "person",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "acts-under-authority",
+      "identified-by": [
+        "person",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "acts-under-authority",
+      "identified-by": [
+        "person",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-access",
+      "identified-by": [
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "has-access",
+      "identified-by": [
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "instruction-from-controller",
+      "identified-by": [
+        "controller",
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "instruction-from-controller",
+      "identified-by": [
+        "controller",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "required-by-law",
+      "identified-by": [
+        "person",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "required-by-law",
+      "identified-by": [
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "process-data-by-person",
+      "actor": "person",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-access",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "acts-under-authority",
+                  "operands": []
+                },
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "instruction-from-controller",
+                      "operands": []
+                    },
+                    {
+                      "identifier": "required-by-law",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "processing-duty-by-person",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "process-data-by-processor",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-access",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "instruction-from-controller",
+                  "operands": []
+                },
+                {
+                  "identifier": "required-by-law",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "processing-duty-by-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "processing-duty-by-person",
+      "holder": "person",
+      "claimant": "subject",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "processing-duty-by-processor",
+      "holder": "processor",
+      "claimant": "subject",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}
+
+Article 48
+Transfers or disclosures not authorised by Union law
+
+Any judgment of a court or tribunal and any decision of an administrative authority of a third country requiring a controller or processor to transfer or disclose personal data may only be recognised or enforceable in any manner if based on an international agreement, such as a mutual legal assistance treaty, in force between the requesting third country and the Union or a Member State, without prejudice to other grounds for transfer pursuant to this Chapter.
+
+Its JSON specification:
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "union",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country",
+        "union"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-request",
+      "identified-by": [
+        "controller",
+        "data",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-request",
+      "identified-by": [
+        "controller",
+        "data",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "processor-transfer-request",
+      "identified-by": [
+        "processor",
+        "data",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "processor-disclosure-request",
+      "identified-by": [
+        "processor",
+        "data",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-data-by-controller",
+      "actor": "controller",
+      "related-to": [
+        "data",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-request",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-duty-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "disclose-data-by-controller",
+      "actor": "controller",
+      "related-to": [
+        "data",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "disclosure-request",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "disclosure-duty-by-controller",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-data-by-processor",
+      "actor": "processor",
+      "related-to": [
+        "data",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "processor-transfer-request",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-duty-by-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "disclose-data-by-processor",
+      "actor": "processor",
+      "related-to": [
+        "data",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "processor-disclosure-request",
+              "operands": []
+            },
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "disclosure-duty-by-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-duty-by-controller",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "disclosure-duty-by-controller",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-duty-by-processor",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "disclosure-duty-by-processor",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}
+
+Now, using these examples, convert the following article into JSON specification of eFLINT.
+
+Article 19
+Notification obligation regarding rectification or erasure of personal data or restriction of processing
+
+The controller shall communicate any rectification or erasure of personal data or restriction of processing carried out in accordance with Article 16, Article 17(1) and Article 18 to each recipient to whom the personal data have been disclosed, unless this proves impossible or involves disproportionate effort. The controller shall inform the data subject about those recipients if the data subject requests it.
+"""
+            }
+        ]
+    }

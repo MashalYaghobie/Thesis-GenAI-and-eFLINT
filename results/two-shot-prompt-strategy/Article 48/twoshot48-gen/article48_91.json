@@ -1,0 +1,153 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "request-based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-or-disclosure-allowed",
+      "identified-by": [
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "request-from-third-country",
+      "identified-by": [
+        "third-country",
+        "judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "request-from-third-country",
+      "identified-by": [
+        "third-country",
+        "decision"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-judgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "request-from-third-country",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-or-disclosure-allowed",
+              "operands": []
+            },
+            {
+              "identifier": "request-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-enforce-decision",
+      "actor": "processor",
+      "related-to": [
+        "decision"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "request-from-third-country",
+              "operands": []
+            },
+            {
+              "identifier": "transfer-or-disclosure-allowed",
+              "operands": []
+            },
+            {
+              "identifier": "request-based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "judgment"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "processor",
+      "claimant": "third-country",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

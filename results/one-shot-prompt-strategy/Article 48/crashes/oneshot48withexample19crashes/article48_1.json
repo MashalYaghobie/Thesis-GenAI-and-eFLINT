@@ -1,0 +1,93 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-conditions",
+      "identified-by": [
+        "court-judgment",
+        "administrative-decision",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "legal-agreement-requirement",
+      "identified-by": [
+        "third-country",
+        "international-agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-transfers",
+      "actor": "court",
+      "related-to": [
+        "controller",
+        "processor"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "recognition-conditions",
+              "operands": []
+            },
+            {
+              "identifier": "legal-agreement-requirement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "court",
+      "claimant": "controller",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

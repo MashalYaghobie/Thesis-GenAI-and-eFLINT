@@ -1,0 +1,164 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "internationalAgreement",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "thirdCountry",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requiresTransferOrDisclosure",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requiresTransferOrDisclosure",
+      "identified-by": [
+        "decision",
+        "processor",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "basedOnInternationalAgreement",
+      "identified-by": [
+        "internationalAgreement",
+        "thirdCountry"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recogniseOrEnforceJudgment",
+      "actor": "controller",
+      "related-to": [
+        "judgment",
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiresTransferOrDisclosure",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "basedOnInternationalAgreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "thirdCountry",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognitionDutyByController",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recogniseOrEnforceDecision",
+      "actor": "processor",
+      "related-to": [
+        "decision",
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiresTransferOrDisclosure",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "basedOnInternationalAgreement",
+                  "operands": []
+                },
+                {
+                  "identifier": "thirdCountry",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognitionDutyByProcessor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognitionDutyByController",
+      "holder": "controller",
+      "claimant": "personalData",
+      "related-to": [
+        "judgment"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognitionDutyByProcessor",
+      "holder": "processor",
+      "claimant": "personalData",
+      "related-to": [
+        "decision"
+      ]
+    }
+  ],
+  "updates": true
+}

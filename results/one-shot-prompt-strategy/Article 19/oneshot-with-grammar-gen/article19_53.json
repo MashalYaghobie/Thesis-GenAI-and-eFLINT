@@ -1,0 +1,203 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal-data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipients",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-disclosed",
+      "identified-by": [
+        "controller",
+        "recipients",
+        "personal-data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notifies-rectification",
+      "identified-by": [
+        "controller",
+        "rectification",
+        "recipients"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notifies-erasure",
+      "identified-by": [
+        "controller",
+        "erasure",
+        "recipients"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "notifies-restriction",
+      "identified-by": [
+        "controller",
+        "restriction",
+        "recipients"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "informs-data-subject",
+      "identified-by": [
+        "controller",
+        "data-subject",
+        "recipients"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-rectification",
+      "actor": "controller",
+      "related-to": [
+        "rectification",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "notifies-rectification",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-rectification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-erasure",
+      "actor": "controller",
+      "related-to": [
+        "erasure",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "notifies-erasure",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-erasure",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "communicate-restriction",
+      "actor": "controller",
+      "related-to": [
+        "restriction",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "notifies-restriction",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "communication-duty-for-restriction",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "informs-data-subject",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "information-duty-for-data-subject",
+          "operands": []
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

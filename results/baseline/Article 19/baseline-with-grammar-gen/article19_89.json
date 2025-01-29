@@ -1,0 +1,41 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "string_set": [
+            "rectification",
+            "erasure",
+            "restriction_of_processing"
+          ]
+        },
+        "b": true
+      }
+    },
+    {
+      "edc": {
+        "d0": "controller",
+        "b": false,
+        "c": [
+          "rectification",
+          "erasure",
+          "restriction_of_processing"
+        ],
+        "b0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": [
+          "personal_data_disclosure"
+        ],
+        "b": true,
+        "b0": false
+      }
+    }
+  ]
+}

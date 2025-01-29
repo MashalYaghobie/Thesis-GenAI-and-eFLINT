@@ -1,0 +1,20 @@
+{
+  "eFLINT": {
+    "Article": 48,
+    "Title": "Transfers or disclosures not authorised by Union law",
+    "Content": {
+      "Paragraph": 1,
+      "Principle": "Recognition and enforceability of judgments or decisions",
+      "Conditions": [
+        {
+          "Condition": "Must be based on an international agreement",
+          "Examples": [
+            "mutual legal assistance treaty"
+          ],
+          "Scope": "Between requesting third country and the Union or a Member State"
+        }
+      ],
+      "Remarks": "Without prejudice to other grounds for transfer pursuant to this Chapter"
+    }
+  }
+}

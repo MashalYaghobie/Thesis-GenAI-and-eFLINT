@@ -1,0 +1,37 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferOrDisclosureNotAuthorisedByUnionLaw",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtDecisionOrJudgment",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreementRequirement",
+        "δ": "string_set('mutual legal assistance treaty', 'Union', 'Member State')",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "ControllerOrProcessorRequirement",
+        "d1": "TransferOrDisclosureNotAuthorisedByUnionLaw",
+        "d2": "InternationalAgreementRequirement",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorizedByUnionLaw",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtOrTribunalJudgment",
+        "b": false,
+        "c": ["Controller", "Processor", "PersonalData"],
+        "b0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "DecisionOfAdministrativeAuthority",
+        "b": false,
+        "c": ["Controller", "Processor", "PersonalData"],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreement",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "Judgment",
+        "d1": "ThirdCountry",
+        "d2": "UnionOrMemberState",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}
+```

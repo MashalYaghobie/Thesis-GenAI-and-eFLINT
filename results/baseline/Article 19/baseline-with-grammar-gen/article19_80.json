@@ -1,0 +1,46 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "string_set": [
+            "rectification",
+            "erasure",
+            "restriction"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "rectification_erasure_restriction",
+        "d2": "recipients",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "recipient_notification",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "data_subject",
+        "d1": "recipients_info",
+        "d2": "request",
+        "d*": [],
+        "b?": null,
+        "b?0": null
+      }
+    }
+  ]
+}

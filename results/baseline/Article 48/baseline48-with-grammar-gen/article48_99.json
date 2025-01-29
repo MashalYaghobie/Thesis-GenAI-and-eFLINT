@@ -1,0 +1,43 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": {
+          "type": "strings",
+          "value": [
+            "Any judgment of a court or tribunal",
+            "Any decision of an administrative authority of a third country"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "ConditionsForRecognition",
+        "δ": {
+          "type": "strings",
+          "value": [
+            "Based on an international agreement",
+            "Such as a mutual legal assistance treaty",
+            "In force between the requesting third country and the Union or a Member State"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "TransferGrounds",
+        "δ": {
+          "type": "strings",
+          "value": [
+            "Without prejudice to other grounds for transfer pursuant to this Chapter"
+          ]
+        },
+        "b": null
+      }
+    }
+  ]
+}

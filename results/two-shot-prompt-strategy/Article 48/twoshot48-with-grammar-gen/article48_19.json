@@ -1,0 +1,106 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personal_data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court_or_tribunal_judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer_or_disclosure",
+      "identified-by": [
+        "third_country",
+        "personal_data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognizable_or_enforceable",
+      "identified-by": [
+        "court_or_tribunal_judgment",
+        "controller",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based_on_international_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer_or_disclose_personal_data",
+      "actor": "controller",
+      "related-to": [
+        "third_country",
+        "personal_data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer_or_disclosure",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_international_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer_or_disclosure_duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer_or_disclosure_duty",
+      "holder": "controller",
+      "claimant": "third_country",
+      "related-to": [
+        "personal_data"
+      ]
+    }
+  ],
+  "updates": true
+}

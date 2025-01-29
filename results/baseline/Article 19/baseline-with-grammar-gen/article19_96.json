@@ -1,0 +1,14 @@
+```
+specifications ::= 
+    fdecl("notification_obligation", 
+          product("controller", "rectification", "erasure", "restriction"), 
+          boolean_expr("disclosure_proven_impossible"));
+          
+    fdecl("recipient_notification", 
+          product("recipient", "personal_data"), 
+          boolean_expr("disproportionate_effort"));
+          
+    fdecl("data_subject_information", 
+          product("data_subject", "recipients"), 
+          boolean_expr("requested_by_data_subject"));
+```

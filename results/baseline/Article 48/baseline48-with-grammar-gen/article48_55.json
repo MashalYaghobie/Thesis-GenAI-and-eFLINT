@@ -1,0 +1,36 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_or_disclosures_not_authorised_by_Union_law",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Judgment_or_decision_requirement",
+        "b": false,
+        "c": [
+          "controller_or_processor",
+          "international_agreement",
+          "mutual_legal_assistance_treaty",
+          "third_country",
+          "Union",
+          "Member_State"
+        ],
+        "b0": false
+      }
+    },
+    {
+      "dc": {
+        "d0": "Recognition_or_enforceability",
+        "d1": "transfer_or_disclose_personal_data",
+        "d2": "based_on_international_agreement",
+        "d*": [],
+        "b": false,
+        "b0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersDisclosuresNotAuthorizedByUnionLaw",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "ControllerProcessorTransfer",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "CourtTribunalJudgment",
+        "d1": "DecisionAdministrativeAuthority",
+        "d2": "ThirdCountry",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}

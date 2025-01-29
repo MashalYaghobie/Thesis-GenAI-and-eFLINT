@@ -1,0 +1,111 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer-authorised",
+      "identified-by": [
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosure-authorised",
+      "identified-by": [
+        "processor",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-judgment",
+      "actor": "court",
+      "related-to": [
+        "court-judgment",
+        "international-agreement"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer-authorised",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "operator": "OR",
+                  "operands": [
+                    {
+                      "identifier": "court-judgment",
+                      "operands": []
+                    },
+                    {
+                      "identifier": "administrative-decision",
+                      "operands": []
+                    }
+                  ]
+                },
+                {
+                  "identifier": "international-agreement",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "court",
+      "claimant": "third-country",
+      "related-to": [
+        "court-judgment",
+        "administrative-decision"
+      ]
+    }
+  ],
+  "updates": true
+}

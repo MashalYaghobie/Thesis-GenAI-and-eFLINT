@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_Disclosures_Not_Authorised_By_Union_Law",
+        "δ": "string_set('Any judgment of a court or tribunal', 'Any decision of an administrative authority of a third country')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "Transfer_Data",
+        "d1": "Controller",
+        "d2": "Processor",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "International_Agreement",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "Recognise_Enforceable_Judgment",
+        "d1": "Requesting_Third_Country",
+        "d2": "Union_Member_State",
+        "d*": [],
+        "b?": null,
+        "b?0": null
+      }
+    }
+  ]
+}

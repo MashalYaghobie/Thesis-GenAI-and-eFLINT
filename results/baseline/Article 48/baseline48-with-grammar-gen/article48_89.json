@@ -1,0 +1,47 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "judgment_declaration",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "decision_declaration",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "adc": {
+        "d0": "transfer_data",
+        "d1": "international_agreement",
+        "d2": "third_country",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": "false"
+      }
+    },
+    {
+      "eda": {
+        "d0": "court_recognition",
+        "b?": "false",
+        "c*": [],
+        "b?0": "false"
+      }
+    },
+    {
+      "ddc": {
+        "d0": "data_transfer",
+        "d1": "mutual_legal_assistance_treaty",
+        "d2": "Union_or_Member_State",
+        "d*": [],
+        "b?": "false",
+        "b?0": "false"
+      }
+    }
+  ]
+}

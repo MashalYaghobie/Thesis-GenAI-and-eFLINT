@@ -1,0 +1,22 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "rectification",
+        "d2": "erasure",
+        "d*": "data_restriction",
+        "b*": ["recipient_notification", "data_subject_information"],
+        "c*": null,
+        "b?0": null
+      }
+    }
+  ]
+}

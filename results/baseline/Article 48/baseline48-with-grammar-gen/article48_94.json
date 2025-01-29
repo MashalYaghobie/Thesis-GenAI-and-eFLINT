@@ -1,0 +1,34 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "b": null,
+        "c": [
+          "Any judgment of a court or tribunal",
+          "Any decision of an administrative authority of a third country"
+        ],
+        "b0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "RecognisedOrEnforceable",
+        "d1": "InternationalAgreement",
+        "d2": "MutualLegalAssistanceTreaty",
+        "d*": [],
+        "b": null,
+        "b0": null
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,25 @@
+{
+  "Article": {
+    "Number": 48,
+    "Title": "Transfers or disclosures not authorised by Union law",
+    "Content": {
+      "Requirement": "Any judgment or decision requiring a transfer or disclosure of personal data must be based on an international agreement.",
+      "Conditions": [
+        {
+          "Type": "Agreement",
+          "Examples": [
+            "mutual legal assistance treaty"
+          ]
+        },
+        {
+          "Parties": [
+            "requesting third country",
+            "Union",
+            "Member State"
+          ]
+        }
+      ],
+      "Note": "This is without prejudice to other grounds for transfer pursuant to this Chapter."
+    }
+  }
+}

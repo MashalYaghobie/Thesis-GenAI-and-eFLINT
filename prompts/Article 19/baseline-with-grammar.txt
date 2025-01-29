@@ -1,0 +1,48 @@
+{
+        "model": "gpt-4o-mini",
+        "messages": [
+            {
+                "role": "system",
+                "content": """You will convert the given article into a JSON specification of eFLINT language. Ensure that the output contains no extraneous text.
+                Follow the rules of the eFLINT language as defined by the abstract syntax (BNF grammar) below.
+
+                x ∈ type_ids ::= ...                     
+                s ∈ strings ::= ...                      
+                z ∈ Z ::= {0, 1, ..., -1, -2, ...}       
+                i ∈ instance_exprs ::= ...               
+                b ∈ boolean_exprs ::= ...                
+
+                δ ∈ domains ::=     strings                              
+                                  | string_set(s1, ..., sn)              
+                                  | Z                                    
+                                  | int_set(z1, ..., zn)                 
+                                  | product(x1, ..., xn)                 
+                                  | ...                                  
+
+                fdc ∈ fact_decls ::= fdecl(d, δ, b?)     
+                
+                adc ∈ act_decls ::= adecl(d0, d1, d2, d*, b*, c*, b?0)   
+
+                edc ∈ event_decls ::= edecl(d0, b?, c*, b?0)              
+
+                ddc ∈ duty_decls ::= ddecl(d0, d1, d2, d*, b?, b?0)       
+
+                c ∈ posts ::=        create(i)                            
+                                   | terminate(i)                        
+
+                dc ∈ decls ::=       fdc                                  
+                                   | adc                                  
+                                   | edc                                  
+                                   | ddc                                  
+                                   | ...                                  
+
+                specifications ::= dc* """
+            },
+            {
+                "role": "user",
+                "content": """Article 19 
+                              Notification obligation regarding rectification or erasure of personal data or restriction of processing
+                              The controller shall communicate any rectification or erasure of personal data or restriction of processing carried out in accordance with Article 16, Article 17(1) and Article 18 to each recipient to whom the personal data have been disclosed, unless this proves impossible or involves disproportionate effort. The controller shall inform the data subject about those recipients if the data subject requests it."""
+            }
+        ]
+    }

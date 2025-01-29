@@ -1,0 +1,119 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "dataSubject",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "hasBeenDisclosed",
+      "identified-by": [
+        "recipient",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requiresInformation",
+      "identified-by": [
+        "dataSubject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notifyRectificationOrErasure",
+      "actor": "controller",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "hasBeenDisclosed",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "provesImpossible",
+                  "operands": []
+                },
+                {
+                  "identifier": "involvesDisproportionateEffort",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notificationDuty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "informDataSubject",
+      "actor": "controller",
+      "related-to": [
+        "dataSubject"
+      ],
+      "holds-when": [
+        {
+          "operator": "requiresInformation",
+          "operands": []
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "informationDuty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notificationDuty",
+      "holder": "controller",
+      "claimant": "recipient",
+      "related-to": [
+        "personalData"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "informationDuty",
+      "holder": "controller",
+      "claimant": "dataSubject",
+      "related-to": [
+        "recipient"
+      ]
+    }
+  ],
+  "updates": true
+}

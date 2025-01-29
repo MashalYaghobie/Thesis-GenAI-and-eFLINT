@@ -1,0 +1,45 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "transfer_disclosure_unlawful",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "court_judgment",
+        "b": "false",
+        "c": ["controller", "processor"],
+        "b0": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "administrative_decision",
+        "b": "false",
+        "c": ["controller", "processor"],
+        "b0": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "international_agreement",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "adc": {
+        "d0": "third_country",
+        "d1": "union",
+        "d2": "member_state",
+        "d*": ["transfer", "disclosure"],
+        "b*": ["based_on_agreement"],
+        "c*": [],
+        "b0": "false"
+      }
+    }
+  ]
+}

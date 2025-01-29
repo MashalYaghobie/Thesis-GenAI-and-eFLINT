@@ -1,0 +1,29 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureAuthorization",
+        "δ": "string_set('Any judgment of a court or tribunal', 'Any decision of an administrative authority')",
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "DataTransferConditions",
+        "δ": "string_set('international agreement', 'mutual legal assistance treaty')",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "DataTransferRecognition",
+        "b": null,
+        "c": [
+          "TransferDisclosureAuthorization",
+          "DataTransferConditions"
+        ],
+        "b0": null
+      }
+    }
+  ]
+}

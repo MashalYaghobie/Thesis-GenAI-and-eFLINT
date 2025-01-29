@@ -1,0 +1,28 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosuresNotAuthorised",
+        "δ": "string_set('Any judgment of a court or tribunal', 'Any decision of an administrative authority')",
+        "b": null
+      }
+    },
+    {
+      "fdecl": {
+        "d": "RecognitionEnforcementConditions",
+        "δ": "string_set('international agreement', 'mutual legal assistance treaty')",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransferConditions",
+        "b": null,
+        "c": ["data_controller", "data_processor"],
+        "b0": null
+      }
+    }
+  ]
+}
+```

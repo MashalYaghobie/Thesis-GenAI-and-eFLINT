@@ -1,0 +1,19 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Transfer_Disclosure_Non_Authorised",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+```
+specifications ::= 
+    fdecl("notification_obligation", 
+          string_set("rectification", "erasure", "restriction_of_processing"), 
+          boolean_expr("proves_impossible") 
+    ),
+    fdecl("controller_communication", 
+          string_set("Article_16", "Article_17(1)", "Article_18"), 
+          boolean_expr("disproportionate_effort") 
+    ),
+    fdecl("recipient_information", 
+          string_set("recipient_disclosed_data"), 
+          boolean_expr("data_subject_request") 
+    )
+```

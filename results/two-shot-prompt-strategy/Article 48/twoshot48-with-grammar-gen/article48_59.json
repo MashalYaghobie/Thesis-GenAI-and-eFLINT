@@ -1,0 +1,144 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court_judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international_agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer",
+      "identified-by": [
+        "court_judgment",
+        "controller",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires_transfer",
+      "identified-by": [
+        "administrative_decision",
+        "processor",
+        "data"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based_on_agreement",
+      "identified-by": [
+        "third_country",
+        "international_agreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize_enforce_transfer",
+      "actor": "controller",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement_duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce_transfer",
+      "actor": "processor",
+      "related-to": [
+        "data"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires_transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based_on_agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforcement_duty_processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement_duty",
+      "holder": "controller",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforcement_duty_processor",
+      "holder": "processor",
+      "claimant": "data",
+      "related-to": [
+        "data"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "transfer_disclosure",
+        "d1": "personal_data",
+        "d2": "third_country",
+        "d*": ["court_decision", "administrative_decision"],
+        "b*": ["based_on_agreement", "international_agreement"],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "enforcement",
+        "b": false,
+        "c*": [],
+        "b?0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "union-law",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "valid-transfer",
+      "identified-by": [
+        "third-country",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international-agreement",
+      "identified-by": [
+        "third-country",
+        "union-law"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-possible",
+      "identified-by": [
+        "court-judgment",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforce-judgment",
+      "actor": "court",
+      "related-to": [
+        "court-judgment",
+        "controller",
+        "processor"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            },
+            {
+              "identifier": "recognition-possible",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceability-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforceability-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "court-judgment"
+      ]
+    }
+  ],
+  "updates": true
+}

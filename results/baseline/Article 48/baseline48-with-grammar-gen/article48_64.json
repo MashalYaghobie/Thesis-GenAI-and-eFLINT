@@ -1,0 +1,51 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48",
+        "δ": {
+          "string_set": [
+            "Transfers or disclosures not authorised by Union law"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Judgment_Recognition",
+        "δ": {
+          "string_set": [
+            "Any judgment of a court or tribunal",
+            "Any decision of an administrative authority of a third country"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Conditions_for_Recognition",
+        "δ": {
+          "string_set": [
+            "based on an international agreement",
+            "such as a mutual legal assistance treaty",
+            "in force between the requesting third country and the Union or a Member State"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "fdc": {
+        "d": "Prejudice_to_Transfer_Grounds",
+        "δ": {
+          "string_set": [
+            "without prejudice to other grounds for transfer pursuant to this Chapter"
+          ]
+        },
+        "b": null
+      }
+    }
+  ]
+}

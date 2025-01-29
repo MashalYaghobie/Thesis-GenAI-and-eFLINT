@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers or disclosures not authorised by Union law",
+        "δ": "string_set('judgment', 'decision', 'administrative authority')",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "processor",
+        "d2": "personal_data",
+        "d*": "string_set('transfer', 'disclose')",
+        "b*": "boolean_expr",
+        "c*": "string_set('international agreement', 'mutual legal assistance treaty')",
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "third_country",
+        "b?": null,
+        "c*": "string_set('requesting third country', 'Union', 'Member State')",
+        "b?0": null
+      }
+    }
+  ]
+}

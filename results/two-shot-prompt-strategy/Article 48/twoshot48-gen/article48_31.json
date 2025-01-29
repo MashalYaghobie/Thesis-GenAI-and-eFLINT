@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement-type",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-or-decision",
+      "identified-by": [
+        "court-judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "judgment-or-decision",
+      "identified-by": [
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognition-or-enforcement",
+      "identified-by": [
+        "judgment-or-decision",
+        "controller",
+        "third-country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "third-country",
+        "agreement-type"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize-or-enforce-transfer",
+      "actor": "controller",
+      "related-to": [
+        "judgment-or-decision",
+        "third-country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "recognition-or-enforcement",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-duty",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "judgment-or-decision"
+      ]
+    }
+  ],
+  "updates": true
+}

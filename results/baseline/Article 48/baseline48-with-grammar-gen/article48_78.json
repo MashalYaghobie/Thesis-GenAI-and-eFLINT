@@ -1,0 +1,19 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48_Transfers_Disclosures_Not_Authorised_By_Union_Law",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article_48_Transfers_Disclosures_Not_Authorised_By_Union_Law",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    }
+  ]
+}

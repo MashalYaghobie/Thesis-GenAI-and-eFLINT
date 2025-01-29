@@ -1,0 +1,200 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "has-disclosed",
+      "identified-by": [
+        "recipient",
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "update-communication",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "update-communication",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "update-communication",
+      "identified-by": [
+        "controller",
+        "recipient",
+        "restriction-of-processing"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "request-for-recipients",
+      "identified-by": [
+        "data-subject",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-rectification",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "rectification"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "update-communication",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-recipient-rectification",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-erasure",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "erasure"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "update-communication",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-recipient-erasure",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients-of-restriction-of-processing",
+      "actor": "controller",
+      "related-to": [
+        "recipient",
+        "restriction-of-processing"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "has-disclosed",
+              "operands": []
+            },
+            {
+              "identifier": "update-communication",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty-for-recipient-restriction",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-for-recipient-rectification",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-for-recipient-erasure",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty-for-recipient-restriction",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipient",
+        "restriction-of-processing"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,7 @@
+```
+specifications ::= 
+    fdecl("Article48", 
+        string_set("Transfers", "disclosures", "not authorised by Union law", "judgment", "court", "tribunal", "decision", "administrative authority", "third country", "controller", "processor", "personal data", "international agreement", "mutual legal assistance treaty", "Union", "Member State", "grounds for transfer"), 
+        b?0
+    )
+```

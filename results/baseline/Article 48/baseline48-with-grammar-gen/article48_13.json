@@ -1,0 +1,40 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "TransfersOrDisclosuresNotAuthorized",
+        "d1": "controllerOrProcessor",
+        "d2": "personalData",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtOrTribunalDecision",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "ddc": {
+        "d0": "InternationalAgreement",
+        "d1": "mutualLegalAssistanceTreaty",
+        "d2": "UnionOrMemberState",
+        "d*": [],
+        "b?": null,
+        "b?0": null
+      }
+    }
+  ]
+}

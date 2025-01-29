@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article 48",
+        "δ": "string_set('Transfers or disclosures not authorised by Union law')",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "court_judgment",
+        "d1": "third_country",
+        "d2": "personal_data_transfer",
+        "d*": ["international_agreement", "mutual_legal_assistance_treaty"],
+        "b*": [],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "recognition_enforcement",
+        "b?": false,
+        "c*": ["international_agreement"],
+        "b?0": false
+      }
+    }
+  ]
+}

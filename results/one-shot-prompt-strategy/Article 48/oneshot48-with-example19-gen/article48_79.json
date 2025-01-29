@@ -1,0 +1,112 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court-judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative-decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third-country",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "transfer",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "disclosure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "international-agreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "recognised-decision",
+      "identified-by": [
+        "third-country",
+        "court-judgment"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-decision",
+      "identified-by": [
+        "third-country",
+        "administrative-decision"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-or-enforce",
+      "actor": "controller",
+      "related-to": [
+        "third-country",
+        "court-judgment"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "international-agreement",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "recognised-decision",
+                  "operands": []
+                },
+                {
+                  "identifier": "enforceable-decision",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "transfer-or-disclosure-duties",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "transfer-or-disclosure-duties",
+      "holder": "controller",
+      "claimant": "third-country",
+      "related-to": [
+        "transfer",
+        "disclosure"
+      ]
+    }
+  ],
+  "updates": true
+}

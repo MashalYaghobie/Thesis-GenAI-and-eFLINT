@@ -1,0 +1,41 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "adc": {
+        "d0": "transfer_data",
+        "d1": "judgment_or_decision",
+        "d2": "international_agreement",
+        "d*": [],
+        "b*": [],
+        "b?0": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "requirement_for_transfer",
+        "b?": "true",
+        "c*": [],
+        "b?0": "false"
+      }
+    },
+    {
+      "ddc": {
+        "d0": "data_transfer_conditions",
+        "d1": "mutual_legal_assistance_treaty",
+        "d2": "requesting_third_country",
+        "d*": [],
+        "b?": "true",
+        "b?0": "false"
+      }
+    }
+  ]
+}
+```

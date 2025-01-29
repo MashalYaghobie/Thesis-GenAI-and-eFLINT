@@ -1,0 +1,145 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data-subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipients",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction-of-processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "recipients",
+        "rectification"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "recipients",
+        "erasure"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "communicates",
+      "identified-by": [
+        "controller",
+        "recipients",
+        "restriction-of-processing"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "unable-to-communicate",
+      "identified-by": [
+        "controller",
+        "recipients"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify-recipients",
+      "actor": "controller",
+      "related-to": [
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "NOT",
+          "operands": [
+            {
+              "identifier": "unable-to-communicate",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "inform-data-subject",
+      "actor": "controller",
+      "related-to": [
+        "data-subject",
+        "recipients"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "data-subject",
+              "operands": []
+            },
+            {
+              "identifier": "recipients",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification-to-data-subject",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-duty",
+      "holder": "controller",
+      "claimant": "recipients",
+      "related-to": [
+        "data-subject"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification-to-data-subject",
+      "holder": "controller",
+      "claimant": "data-subject",
+      "related-to": [
+        "recipients"
+      ]
+    }
+  ],
+  "updates": true
+}

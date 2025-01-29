@@ -1,0 +1,25 @@
+{
+  "Article": "48",
+  "Title": "Transfers or disclosures not authorised by Union law",
+  "Content": {
+    "Description": "Any judgment of a court or tribunal and any decision of an administrative authority of a third country requiring a controller or processor to transfer or disclose personal data may only be recognised or enforceable in any manner if based on an international agreement.",
+    "Conditions": [
+      {
+        "Condition": "Recognition or enforceability is based on an international agreement",
+        "Type": "Examples",
+        "Examples": [
+          "mutual legal assistance treaty"
+        ]
+      },
+      {
+        "Condition": "The agreement must be in force",
+        "Entities": [
+          "the requesting third country",
+          "the Union",
+          "a Member State"
+        ]
+      }
+    ],
+    "Note": "This is without prejudice to other grounds for transfer pursuant to this Chapter."
+  }
+}

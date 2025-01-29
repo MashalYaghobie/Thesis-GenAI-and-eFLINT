@@ -1,0 +1,157 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "courtJudgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrativeDecision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "thirdCountry",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "agreement",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "unionLaw",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "courtJudgment",
+        "controller",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requires-transfer",
+      "identified-by": [
+        "administrativeDecision",
+        "processor",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "based-on-agreement",
+      "identified-by": [
+        "thirdCountry",
+        "agreement"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "not-authorised-by-union-law",
+      "identified-by": [
+        "unionLaw",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-personal-data",
+      "actor": "controller",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceable-transfer",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "transfer-or-disclose-personal-data-processor",
+      "actor": "processor",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requires-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "based-on-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "enforceable-transfer-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforceable-duty-by-controller",
+      "holder": "controller",
+      "claimant": "thirdCountry",
+      "related-to": [
+        "personalData"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "enforceable-duty-by-processor",
+      "holder": "processor",
+      "claimant": "thirdCountry",
+      "related-to": [
+        "personalData"
+      ]
+    }
+  ],
+  "updates": true
+}

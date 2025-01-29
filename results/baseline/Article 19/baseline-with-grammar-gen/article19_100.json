@@ -1,0 +1,13 @@
+```
+specifications ::= 
+    fdecl("Notification Obligation", 
+        string_set("rectification", "erasure", "restriction"), 
+        boolean_expr(false))
+    | fdecl("Controller Communication", 
+        string_set("recipients", "personal_data"), 
+        boolean_expr(true))
+    | edecl("Rectification or Erasure Notification", 
+        boolean_expr(true), 
+        string_set("controller", "data_subject"), 
+        boolean_expr(false))
+```

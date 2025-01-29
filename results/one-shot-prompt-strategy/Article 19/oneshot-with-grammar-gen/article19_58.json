@@ -1,0 +1,102 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "recipient",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "data_subject",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "rectification_or_erasure",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "restriction_of_processing",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "disclosed_data",
+      "identified-by": [
+        "controller",
+        "recipient"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requests_information",
+      "identified-by": [
+        "data_subject"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "notify_recipients",
+      "actor": "controller",
+      "related-to": [
+        "rectification_or_erasure",
+        "restriction_of_processing"
+      ],
+      "holds-when": [
+        {
+          "operator": "OR",
+          "operands": [
+            {
+              "identifier": "disclosed_data",
+              "operands": []
+            },
+            {
+              "operator": "AND",
+              "operands": [
+                {
+                  "identifier": "requests_information",
+                  "operands": []
+                },
+                {
+                  "operator": "NOT",
+                  "operands": [
+                    {
+                      "identifier": "disclosed_data",
+                      "operands": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "notification_obligation",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "notification_obligation",
+      "holder": "controller",
+      "claimant": "data_subject",
+      "related-to": [
+        "recipient",
+        "rectification_or_erasure",
+        "restriction_of_processing"
+      ]
+    }
+  ],
+  "updates": true
+}

@@ -1,0 +1,40 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorised",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtOrTribunalJudgment",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "AdministrativeAuthorityDecision",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "TransferPersonalData",
+        "d1": "InternationalAgreement",
+        "d2": "MutualLegalAssistanceTreaty",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": null
+      }
+    }
+  ]
+}
+```

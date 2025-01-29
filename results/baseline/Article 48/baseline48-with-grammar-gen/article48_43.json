@@ -1,0 +1,31 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosures",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "JudgmentOrDecision",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "dc": {
+        "d0": "ControllerOrProcessor",
+        "d1": "DataTransferAuthorization",
+        "d2": "InternationalAgreement",
+        "d": [],
+        "b": null,
+        "b0": null
+      }
+    }
+  ]
+}
+```

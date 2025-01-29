@@ -1,0 +1,46 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureConstraint",
+        "δ": {
+          "string_set": [
+            "CourtJudgment",
+            "AdministrativeDecision",
+            "InternationalAgreement"
+          ]
+        },
+        "b": true
+      }
+    },
+    {
+      "adc": {
+        "d0": "ControllerProcessor",
+        "d1": "PersonalData",
+        "d2": "ThirdCountry",
+        "d*": [],
+        "b*": ["InternationalAgreementExists"],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "TransferRequest",
+        "b": true,
+        "c*": ["CourtJudgment", "AdministrativeDecision"],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "DataProtection",
+        "d1": "TransferDisclosure",
+        "d2": "UnionLaw",
+        "d*": [],
+        "b?": true,
+        "b?0": false
+      }
+    }
+  ]
+}

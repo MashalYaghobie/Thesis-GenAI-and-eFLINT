@@ -1,0 +1,49 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation_rectification_erasure",
+        "δ": {
+          "string_set": [
+            "rectification",
+            "erasure",
+            "restriction_of_processing"
+          ]
+        },
+        "b": true
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "personal_data",
+        "d*": [
+          "Article_16",
+          "Article_17_1",
+          "Article_18"
+        ],
+        "b*": [
+          "impossible",
+          "disproportionate_effort"
+        ],
+        "c*": [
+          "inform_data_subject"
+        ],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "data_subject",
+        "b": true,
+        "c*": [
+          "request_recipients_information"
+        ],
+        "b?0": false
+      }
+    }
+  ]
+}
+```

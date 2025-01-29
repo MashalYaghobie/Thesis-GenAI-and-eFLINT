@@ -1,0 +1,39 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "transfers_or_disclosures_not_authorised_by_union_law",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "judgment_or_decision",
+        "b": false,
+        "c": ["controller", "processor", "personal_data"],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "international_agreement",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "transfer_or_disclosure",
+        "d1": "third_country",
+        "d2": "union_or_member_state",
+        "d*": ["mutual_legal_assistance_treaty"],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,29 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "transfer_disclosure_not_authorised_by_union_law",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "court_decision",
+        "b": false,
+        "c": ["controller", "processor"],
+        "b0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "transfer_personal_data",
+        "d1": "international_agreement",
+        "d2": "mutual_legal_assistance_treaty",
+        "d*": [],
+        "b": true,
+        "b0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "rectification_or_erasure",
+        "b": false,
+        "c": [
+          "recipient_notification"
+        ],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "recipient_information_request",
+        "δ": "strings",
+        "b": false
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,37 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferOrDisclosureNotAuthorisedByUnionLaw",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtJudgmentOrDecision",
+        "b": false,
+        "c": ["controller", "processor"],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "InternationalAgreementRequirement",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "CourtTribunalDecision",
+        "d1": "ThirdCountryAuthority",
+        "d2": "ControllerOrProcessor",
+        "d*": ["InternationalAgreement", "MutualLegalAssistanceTreaty"],
+        "b*": [],
+        "c*": [],
+        "b0": false
+      }
+    }
+  ]
+}

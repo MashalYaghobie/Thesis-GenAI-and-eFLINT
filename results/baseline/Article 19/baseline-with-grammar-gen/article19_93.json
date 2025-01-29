@@ -1,0 +1,48 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": {
+          "string_set": [
+            "rectification",
+            "erasure",
+            "restriction_of_processing"
+          ]
+        },
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "data_subject",
+        "d*": [],
+        "b*": [
+          "not_communicated_due_to_impossibility",
+          "not_communicated_due_to_disproportionate_effort"
+        ],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "recipient",
+        "b?": false,
+        "c*": ["rectification", "erasure", "restriction_of_processing"],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "controller",
+        "d1": "data_subject",
+        "d2": "recipients_info",
+        "d*": [],
+        "b?": false,
+        "b?0": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Transfers_or_disclosures_not_authorised_by_Union_law",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "Any_judgment_of_a_court_or_tribunal",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    },
+    {
+      "fdc": {
+        "d": "Recognition_or_enforceability_conditions",
+        "δ": "string",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "International_agreement_requirement",
+        "b": false,
+        "c": [],
+        "b0": false
+      }
+    }
+  ]
+}
+```

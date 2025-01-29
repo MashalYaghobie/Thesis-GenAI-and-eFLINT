@@ -1,0 +1,37 @@
+{
+  "Article": 19,
+  "Title": "Notification obligation regarding rectification or erasure of personal data or restriction of processing",
+  "Content": {
+    "Responsibilities": {
+      "Controller": {
+        "Action": [
+          {
+            "Type": "Communicate",
+            "Details": "Any rectification or erasure of personal data or restriction of processing"
+          }
+        ],
+        "ApplicableArticles": [
+          "Article 16",
+          "Article 17(1)",
+          "Article 18"
+        ]
+      }
+    },
+    "Recipients": {
+      "Description": "Each recipient to whom the personal data have been disclosed",
+      "Conditions": [
+        {
+          "Condition": "Impossibility",
+          "Outcome": "Communication not required"
+        },
+        {
+          "Condition": "Disproportionate effort",
+          "Outcome": "Communication not required"
+        }
+      ]
+    },
+    "DataSubject": {
+      "Right": "Inform about the recipients if requested"
+    }
+  }
+}

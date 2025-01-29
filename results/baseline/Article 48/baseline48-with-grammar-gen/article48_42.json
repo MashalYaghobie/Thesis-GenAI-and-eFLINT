@@ -1,0 +1,29 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "court_decision",
+        "b": null,
+        "c": ["controller", "processor"],
+        "b0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "third_country",
+        "b": null,
+        "c": ["international_agreement", "mutual_legal_assistance_treaty"],
+        "b0": null
+      }
+    }
+  ]
+}
+```

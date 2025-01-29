@@ -1,0 +1,31 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosure",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "courtDecision",
+        "b": "false",
+        "c": [],
+        "b0": "false"
+      }
+    },
+    {
+      "ddc": {
+        "d0": "transferCondition",
+        "d1": "internationalAgreement",
+        "d2": "mutualLegalAssistanceTreaty",
+        "d*": [],
+        "b": "true",
+        "b0": "false"
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,143 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "thirdCountry",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "internationalAgreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requiring-transfer",
+      "identified-by": [
+        "judgment",
+        "controller"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requiring-transfer",
+      "identified-by": [
+        "judgment",
+        "processor"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "enforceable-agreement",
+      "identified-by": [
+        "decision",
+        "thirdCountry",
+        "internationalAgreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision",
+      "actor": "controller",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiring-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognise-decision-processor",
+      "actor": "processor",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiring-transfer",
+              "operands": []
+            },
+            {
+              "identifier": "enforceable-agreement",
+              "operands": []
+            }
+          ]
+        }
+      ],
+      "creates": [
+        {
+          "identifier": "recognition-duty-processor",
+          "operands": []
+        }
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty",
+      "holder": "controller",
+      "claimant": "thirdCountry",
+      "related-to": [
+        "personalData"
+      ]
+    },
+    {
+      "kind": "duty",
+      "name": "recognition-duty-processor",
+      "holder": "processor",
+      "claimant": "thirdCountry",
+      "related-to": [
+        "personalData"
+      ]
+    }
+  ],
+  "updates": true
+}

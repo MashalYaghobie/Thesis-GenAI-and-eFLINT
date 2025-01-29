@@ -1,0 +1,51 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureUnauthorized",
+        "δ": {
+          "domain": "string_set",
+          "elements": [
+            "court_judgment",
+            "administrative_decision",
+            "international_agreement",
+            "mutual_legal_assistance_treaty",
+            "Union",
+            "Member_State",
+            "transfer_grounds"
+          ]
+        },
+        "b": false
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "processor",
+        "d2": "third_country",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "court_tribunal",
+        "b?": false,
+        "c*": [],
+        "b?0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "recognition_enforcement",
+        "d1": "international_agreement",
+        "d2": "transfer_grounds",
+        "d*": [],
+        "b?": false,
+        "b?0": false
+      }
+    }
+  ]
+}

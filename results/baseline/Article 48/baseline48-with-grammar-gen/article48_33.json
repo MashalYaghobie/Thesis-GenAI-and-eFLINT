@@ -1,0 +1,21 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article_48_Transfer_Disclosure",
+        "δ": "string_set('Transfers or disclosures not authorised by Union law')",
+        "b": "true"
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article_48_Transfer_Disclosure",
+        "b": "false",
+        "c": [],
+        "b0": "false"
+      }
+    }
+  ]
+}
+```

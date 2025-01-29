@@ -1,0 +1,25 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": {
+          "string_set": ["Transfers", "disclosures", "personal data", "international agreement", "mutual legal assistance treaty", "third country", "Union", "Member State"]
+        },
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article48",
+        "b": null,
+        "c": [
+          "Any judgment of a court or tribunal",
+          "Any decision of an administrative authority of a third country",
+          "transfer or disclose personal data"
+        ],
+        "b0": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "court_or_tribunal_judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "administrative_authority_decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "third_country",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "transfer_or_disclosure_required",
+      "identified-by": [
+        "court_or_tribunal_judgment",
+        "third_country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "international_agreement_in_force",
+      "identified-by": [
+        "third_country"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "mutual_legal_assistance_treaty",
+      "identified-by": [
+        "third_country"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "recognize_enforce_judgment",
+      "actor": "controller",
+      "related-to": [
+        "court_or_tribunal_judgment",
+        "third_country"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "transfer_or_disclosure_required",
+              "operands": []
+            },
+            {
+              "operator": "OR",
+              "operands": [
+                {
+                  "identifier": "international_agreement_in_force",
+                  "operands": []
+                },
+                {
+                  "identifier": "mutual_legal_assistance_treaty",
+                  "operands": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

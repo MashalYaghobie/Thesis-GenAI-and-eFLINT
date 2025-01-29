@@ -1,0 +1,32 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransferDisclosureUnauthorised",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "CourtDecision",
+        "b": null,
+        "c": [],
+        "b0": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "TransferRequest",
+        "d1": "Controller",
+        "d2": "Processor",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b0": null
+      }
+    }
+  ]
+}
+```

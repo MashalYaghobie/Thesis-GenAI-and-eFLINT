@@ -1,0 +1,21 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "string",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "notification_obligation",
+        "b": "false",
+        "c": ["rectification", "erasure", "restriction_of_processing"],
+        "b0": "false"
+      }
+    }
+  ]
+}
+```

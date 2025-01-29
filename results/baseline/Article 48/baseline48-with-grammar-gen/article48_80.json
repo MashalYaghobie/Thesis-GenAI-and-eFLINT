@@ -1,0 +1,30 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "TransfersOrDisclosuresNotAuthorisedByUnionLaw",
+        "δ": "strings",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "JudgmentOrDecision",
+        "d1": "ControllerOrProcessor",
+        "d2": "TransferOrDisclosure",
+        "d*": [],
+        "b*": [],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "InternationalAgreement",
+        "b?": null,
+        "c*": [],
+        "b?0": null
+      }
+    }
+  ]
+}

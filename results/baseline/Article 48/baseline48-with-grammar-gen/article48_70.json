@@ -1,0 +1,61 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "edc": {
+        "d0": "transfer_or_disclosure_not_authorised",
+        "b": "false",
+        "c": ["controller", "processor", "personal_data"],
+        "b0": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "court_or_tribunal_judgment",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "administrative_authority_decision",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "international_agreement",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "mutual_legal_assistance_treaty",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "requesting_third_country",
+        "δ": "strings",
+        "b": "false"
+      }
+    },
+    {
+      "fdc": {
+        "d": "Union_or_Member_State",
+        "δ": "strings",
+        "b": "false"
+      }
+    }
+  ]
+}

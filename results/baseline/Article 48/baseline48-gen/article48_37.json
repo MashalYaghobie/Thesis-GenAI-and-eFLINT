@@ -1,0 +1,14 @@
+{
+  "article": {
+    "number": "48",
+    "title": "Transfers or disclosures not authorised by Union law",
+    "content": {
+      "summary": "Any judgment or decision from a third country requiring data transfer or disclosure may only be recognized if based on an international agreement with the Union or a Member State.",
+      "conditions": [
+        "Must be based on an international agreement such as a mutual legal assistance treaty.",
+        "The agreement must be in force between the requesting third country and the Union or a Member State.",
+        "Does not affect other grounds for transfer pursuant to this Chapter."
+      ]
+    }
+  }
+}

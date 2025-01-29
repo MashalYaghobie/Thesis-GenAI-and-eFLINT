@@ -1,0 +1,36 @@
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation_rectification_erasure",
+        "δ": {
+          "product": [
+            "controller",
+            "recipient",
+            "data_subject"
+          ]
+        },
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "recipient",
+        "d2": "personal_data",
+        "d*": [
+          "rectification",
+          "erasure",
+          "restriction_of_processing"
+        ],
+        "b*": [
+          "request_data_subject"
+        ],
+        "c*": [
+          "inform_data_subject"
+        ],
+        "b?0": null
+      }
+    }
+  ]
+}

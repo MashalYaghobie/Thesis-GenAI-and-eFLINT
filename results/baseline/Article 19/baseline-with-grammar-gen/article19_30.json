@@ -1,0 +1,34 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "notification_obligation",
+        "δ": "strings",
+        "b": false
+      }
+    },
+    {
+      "edc": {
+        "d0": "rectification_or_erasure",
+        "b": false,
+        "c": [
+          "inform_controller",
+          "inform_data_subject"
+        ],
+        "b0": false
+      }
+    },
+    {
+      "ddc": {
+        "d0": "communicate_rectification",
+        "d1": "notify_recipients",
+        "d2": "data_subject_request",
+        "d*": [],
+        "b": false,
+        "b0": false
+      }
+    }
+  ]
+}
+```

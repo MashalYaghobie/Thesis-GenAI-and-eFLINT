@@ -1,0 +1,114 @@
+{
+  "version": "0.1.0",
+  "kind": "phrases",
+  "phrases": [
+    {
+      "kind": "afact",
+      "name": "judgment",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "decision",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "controller",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "processor",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "personalData",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "thirdCountry",
+      "type": "String"
+    },
+    {
+      "kind": "afact",
+      "name": "internationalAgreement",
+      "type": "String"
+    },
+    {
+      "kind": "cfact",
+      "name": "requiresTransferOrDisclosure",
+      "identified-by": [
+        "judgment",
+        "controller",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "requiresTransferOrDisclosure",
+      "identified-by": [
+        "decision",
+        "processor",
+        "personalData"
+      ]
+    },
+    {
+      "kind": "cfact",
+      "name": "recognizedOrEnforceable",
+      "identified-by": [
+        "thirdCountry",
+        "internationalAgreement"
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforceJudgmentOrDecision",
+      "actor": "controller",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiresTransferOrDisclosure",
+              "operands": []
+            },
+            {
+              "identifier": "recognizedOrEnforceable",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "act",
+      "name": "enforceJudgmentOrDecision",
+      "actor": "processor",
+      "related-to": [
+        "personalData"
+      ],
+      "holds-when": [
+        {
+          "operator": "AND",
+          "operands": [
+            {
+              "identifier": "requiresTransferOrDisclosure",
+              "operands": []
+            },
+            {
+              "identifier": "recognizedOrEnforceable",
+              "operands": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "updates": true
+}

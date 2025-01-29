@@ -1,0 +1,32 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Notification obligation regarding rectification or erasure of personal data or restriction of processing",
+        "δ": "string_set(Article 16, Article 17(1), Article 18)",
+        "b": null
+      }
+    },
+    {
+      "adc": {
+        "d0": "controller",
+        "d1": "rectification_or_erasure",
+        "d2": "recipients",
+        "d*": ["personal_data"],
+        "b*": ["impossible", "disproportionate_effort"],
+        "c*": [],
+        "b?0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "data_subject",
+        "b?": null,
+        "c*": ["recipients"],
+        "b?0": null
+      }
+    }
+  ]
+}
+```

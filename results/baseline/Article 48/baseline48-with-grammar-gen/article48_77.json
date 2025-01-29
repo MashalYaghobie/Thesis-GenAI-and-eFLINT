@@ -1,0 +1,39 @@
+```json
+{
+  "specifications": [
+    {
+      "fdc": {
+        "d": "Article48",
+        "δ": "string_set('Transfers or disclosures not authorised by Union law')",
+        "b": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article48",
+        "b": null,
+        "c": ["Any judgment of a court or tribunal", "any decision of an administrative authority"],
+        "b0": null
+      }
+    },
+    {
+      "dc": {
+        "d0": "Article48",
+        "d1": "transfer",
+        "d2": "disclosure",
+        "d*": [],
+        "b": null,
+        "b0": null
+      }
+    },
+    {
+      "edc": {
+        "d0": "Article48",
+        "b": null,
+        "c": ["based on an international agreement", "mutual legal assistance treaty"],
+        "b0": null
+      }
+    }
+  ]
+}
+```
